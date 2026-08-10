@@ -12,7 +12,7 @@
  *
  * Exécuté via `tsx` (voir script npm `postbuild`).
  */
-import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { copyFileSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { PAGE_SEO_LIST, type PageSeo } from '../src/config/seo';
@@ -99,4 +99,8 @@ ${routes
 `;
 writeFileSync(resolve(dist, 'sitemap.xml'), sitemap, 'utf-8');
 
-console.log(`✓ Pré-rendu : ${written} routes + sitemap.xml (${routes.length} URLs).`);
+// GitHub Pages : 404.html = copie de la page racine pour servir le SPA
+// sur les routes non pré-rendues (fallback client-side).
+copyFileSync(resolve(dist, 'index.html'), resolve(dist, '404.html'));
+
+console.log(`✓ Pré-rendu : ${written} routes + sitemap.xml (${routes.length} URLs) + 404.html.`);

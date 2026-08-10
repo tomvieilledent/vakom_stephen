@@ -17,7 +17,9 @@
     "e2e": "playwright test",
     "e2e:report": "playwright show-report",
     "format": "prettier --write \"src/**/*.{ts,tsx,css}\" \"scripts/**/*.ts\" \"e2e/**/*.ts\" \"*.{ts,json,cjs}\"",
-    "format:check": "prettier --check \"src/**/*.{ts,tsx,css}\" \"scripts/**/*.ts\" \"e2e/**/*.ts\" \"*.{ts,json,cjs}\""
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,css}\" \"scripts/**/*.ts\" \"e2e/**/*.ts\" \"*.{ts,json,cjs}\"",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
@@ -43,6 +45,7 @@
     "eslint": "^8.57.1",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.14",
+    "gh-pages": "^6.3.0",
     "jsdom": "^25.0.1",
     "postcss": "^8.4.49",
     "prettier": "^3.3.3",

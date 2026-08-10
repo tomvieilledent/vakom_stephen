@@ -3,7 +3,9 @@ import react from '@vitejs/plugin-react';
 import path from 'node:path';
 
 // https://vitejs.dev/config/
-export default defineConfig({
+export default defineConfig(({ command }) => ({
+  // Sur GitHub Pages (project page), le site est servi sous /vakom_stephen/.
+  base: command === 'build' ? '/vakom_stephen/' : '/',
   plugins: [react()],
   resolve: {
     alias: {
@@ -24,4 +26,4 @@ export default defineConfig({
       },
     },
   },
-});
+}));
