@@ -86,6 +86,11 @@ for (const route of routes) {
   written += 1;
 }
 
+// GitHub Pages sert 404.html pour toute URL sans fichier correspondant
+// (lien direct/refresh sur une route non pré-rendue) : on lui donne la
+// coquille SPA pour que React Router affiche la page NotFound côté client.
+writeFileSync(resolve(dist, '404.html'), template, 'utf-8');
+
 // Sitemap généré depuis la même source (aucune dérive possible).
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
