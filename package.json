@@ -6,18 +6,17 @@
   "description": "Site personnel professionnel — Consultant au sein du réseau Vakom",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
-    "postbuild": "tsx scripts/prerender.ts",
-    "prerender": "tsx scripts/prerender.ts",
+    "build": "vite build",
+    "postbuild": "node scripts/prerender.js",
+    "prerender": "node scripts/prerender.js",
     "preview": "vite preview",
     "lint": "eslint . --max-warnings 0",
-    "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
     "e2e": "playwright test",
     "e2e:report": "playwright show-report",
-    "format": "prettier --write \"src/**/*.{ts,tsx,css}\" \"scripts/**/*.ts\" \"e2e/**/*.ts\" \"*.{ts,json,cjs}\"",
-    "format:check": "prettier --check \"src/**/*.{ts,tsx,css}\" \"scripts/**/*.ts\" \"e2e/**/*.ts\" \"*.{ts,json,cjs}\""
+    "format": "prettier --write \"src/**/*.{js,jsx,css}\" \"scripts/**/*.js\" \"e2e/**/*.js\" \"*.{js,json,cjs}\"",
+    "format:check": "prettier --check \"src/**/*.{js,jsx,css}\" \"scripts/**/*.js\" \"e2e/**/*.js\" \"*.{js,json,cjs}\""
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
@@ -33,11 +32,6 @@
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^14.6.1",
-    "@types/node": "^20.19.43",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
-    "@typescript-eslint/eslint-plugin": "^8.15.0",
-    "@typescript-eslint/parser": "^8.15.0",
     "@vitejs/plugin-react": "^4.3.3",
     "autoprefixer": "^10.4.20",
     "eslint": "^8.57.1",
@@ -47,8 +41,6 @@
     "postcss": "^8.4.49",
     "prettier": "^3.3.3",
     "tailwindcss": "^3.4.15",
-    "tsx": "^4.23.1",
-    "typescript": "^5.6.3",
     "vite": "^5.4.11",
     "vitest": "^2.1.9"
   }

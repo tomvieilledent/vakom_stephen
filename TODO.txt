@@ -1,38 +1,33 @@
 ========================================================================
  SITE CONSULTANT VAKOM — ÉTAT & RESTE À FAIRE
- Dernière mise à jour : 30/07/2026
+ Dernière mise à jour : 10/08/2026
 ========================================================================
 
-ÉTAT ACTUEL : ✅ Site complet, compile sans erreur ni warning, déployable.
-  - Frontend : build OK (tsc + vite), ESLint 0 warning, Prettier OK,
+ÉTAT ACTUEL : ✅ Site complet (JavaScript, sans backend), compile sans
+  erreur ni warning, déployé sur GitHub Pages.
+  - Frontend : build OK (vite), ESLint 0 warning, Prettier OK,
       37 tests Vitest OK (schéma contact, articles, useSeo, JsonLd, Button, Logo,
       Header, FaqAccordion, ContactForm, analytics, CookieConsent, BackToTop).
   - SEO enrichi : JSON-LD ProfessionalService (accueil) + Article & BreadcrumbList
       injectés par page d'article (compatibles CSP).
   - RGPD : bannière de consentement + analytics opt-in (désactivé par défaut),
       lien « Gérer mes cookies » dans le pied de page (révocable).
-  - Sécurité : en-têtes durcis (CSP, X-Frame-Options, nosniff, Referrer-Policy,
-      Permissions-Policy) sur Nginx + Vercel + Netlify.
   - UX : bouton « retour en haut » accessible, apparition au défilement.
-  - Smoke test build servi : HTTP 200, assets 200. ✅
-  - Configs validées (JSON + YAML) : vercel, railway, manifest, compose, CI. ✅
   - SSG : pré-rendu par route (métadonnées dans le HTML statique) + sitemap
-      généré automatiquement (aucune dérive). ✅
+      généré automatiquement (aucune dérive) + 404.html (repli GitHub Pages). ✅
   - E2E Playwright : 4/4 (accueil, navigation, validation formulaire, SSG, 404). ✅
-  - Backend : migrations Alembic (upgrade/downgrade testés) + rate-limit
-      Redis-ready (storage configurable). ✅
-  - Backend  : 6/6 tests pytest OK.
+  - Formulaire de contact : POST vers VITE_CONTACT_ENDPOINT, repli mailto
+      automatique si aucune API ne répond (site 100% statique, sans backend).
   - 9 pages + 404 + 3 pages d'articles, SEO, sitemap, robots.
   - Icônes complètes : favicon.svg + favicon.ico + apple-touch-icon + PWA 192/512.
   - OG : image raster PNG 1200x630 (+ SVG source), Open Graph + Twitter Card.
   - Extras : /.well-known/security.txt + humans.txt.
-  - Docker (front Nginx + back + Postgres), Vercel/Netlify/Railway.
-  - CI GitHub Actions : lint + format:check + types + tests + build + pytest.
+  - CI GitHub Actions : lint + format:check + tests + build + e2e.
 
 ------------------------------------------------------------------------
 1. INFORMATIONS RÉELLES À RENSEIGNER (bloquant avant mise en ligne)
 ------------------------------------------------------------------------
-Fichier : src/config/site.ts
+Fichier : src/config/site.js
   [ ] consultant.fullName  -> nom + prénom complets (actuellement "Stephen")
   [ ] contact.email        -> e-mail professionnel réel
   [ ] contact.phone / phoneHref -> numéro réel
@@ -40,9 +35,9 @@ Fichier : src/config/site.ts
   [ ] contact.calendarUrl  -> lien de prise de RDV (Calendly…) si souhaité
   [ ] consultant.location  -> zone géographique réelle
   [ ] legal.siren          -> SIREN/SIRET réel
-  [ ] legal.* (adresse, forme juridique, TVA) dans src/pages/LegalNotice.tsx
+  [ ] legal.* (adresse, forme juridique, TVA) dans src/pages/LegalNotice.jsx
   [ ] url (domaine)        -> remplacer stephen-consultant.fr partout :
-        - src/config/site.ts
+        - src/config/site.js
         - index.html (canonical, og:url, og:image)
         - public/robots.txt, public/sitemap.xml
         - public/.well-known/security.txt (Contact + Canonical + Expires)
@@ -52,15 +47,15 @@ Fichier : src/config/site.ts
 2. CONTENU À VALIDER / PERSONNALISER
 ------------------------------------------------------------------------
   [ ] Photo du consultant : remplacer le monogramme "S" par une vraie photo
-        - src/components/sections/HomeHero.tsx (bloc "Monogramme")
-        - src/pages/About.tsx (bloc portrait)
+        - src/components/sections/HomeHero.jsx (bloc "Monogramme")
+        - src/pages/About.jsx (bloc portrait)
         - Ajouter l'image dans public/ (ex. public/portrait.jpg, format 4:5)
   [ ] Témoignages : remplacer par de vrais retours clients (avec accord)
-        -> src/config/content.ts (TESTIMONIALS)
-  [ ] Statistiques : ajuster les chiffres réels -> content.ts (STATS)
-  [ ] Parcours (dates/étapes) -> src/pages/About.tsx (JOURNEY)
+        -> src/config/content.js (TESTIMONIALS)
+  [ ] Statistiques : ajuster les chiffres réels -> content.js (STATS)
+  [ ] Parcours (dates/étapes) -> src/pages/About.jsx (JOURNEY)
   [x] Articles "Ressources" : 3 articles complets rédigés + pages dédiées
-      (/ressources/:slug) fonctionnelles. -> src/config/articles.ts
+      (/ressources/:slug) fonctionnelles. -> src/config/articles.js
       [ ] Relire/ajuster le ton et ajouter d'autres articles au fil du temps.
 
 ------------------------------------------------------------------------
@@ -76,35 +71,28 @@ Fichier : src/config/site.ts
 ------------------------------------------------------------------------
 4. AMÉLIORATIONS POSSIBLES (non bloquant)
 ------------------------------------------------------------------------
-  [x] Pré-rendu statique (SSG) : script scripts/prerender.ts (postbuild) génère
-      un HTML par route avec métadonnées propres + sitemap.xml. SEO correct dans
-      le HTML statique pour moteurs et aperçus sociaux. Source unique src/config/seo.ts.
+  [x] Pré-rendu statique (SSG) : script scripts/prerender.js (postbuild) génère
+      un HTML par route avec métadonnées propres + sitemap.xml + 404.html.
+      Source unique src/config/seo.js.
   [x] Mesure d'audience respectueuse + bannière de consentement RGPD implémentées
-      (src/lib/analytics.ts, src/components/CookieConsent.tsx). Désactivées par
+      (src/lib/analytics.js, src/components/CookieConsent.jsx). Désactivées par
       défaut : activer en renseignant VITE_ANALYTICS_DOMAIN. Aucun script chargé
       sans consentement. Page confidentialité mise à jour. 5 tests dédiés.
       [ ] Choisir la solution (Plausible cloud / auto-hébergé, Matomo…) et la clé.
-  [ ] CAPTCHA (hCaptcha/Turnstile) si spam malgré le honeypot + rate-limit.
+  [ ] CAPTCHA (hCaptcha/Turnstile) si spam malgré le honeypot.
   [x] Tests unitaires Vitest (schéma de contact + articles).
   [x] Tests composants Testing Library (Button, Logo, Header, FaqAccordion,
       ContactForm, useSeo, JsonLd, analytics, CookieConsent, BackToTop).
-  [x] Tests E2E Playwright (e2e/smoke.spec.ts) : accueil + navigation, validation
+  [x] Tests E2E Playwright (e2e/smoke.spec.js) : accueil + navigation, validation
       du formulaire, titre pré-rendu par route, page 404. 4/4.
-  [x] Backend : migrations Alembic (backend/migrations) + rate-limit Redis-ready
-      (RATE_LIMIT_STORAGE_URI). Migrations appliquées au démarrage (Docker/Railway).
-  [x] Pipeline CI : lint + format + types + unit + build + E2E + pytest + migrations.
+  [ ] Backend (formulaire de contact avec stockage + notification e-mail) si
+      besoin un jour : le site fonctionne entièrement sans, via le repli mailto.
   [ ] Blog dynamique / CMS headless si publication régulière d'articles.
 
 ------------------------------------------------------------------------
 5. AVANT MISE EN PRODUCTION — CHECKLIST
 ------------------------------------------------------------------------
-  [ ] npm run build && npm run lint  -> vert
-  [ ] cd backend && pytest           -> vert
-  [ ] Configurer VITE_CONTACT_ENDPOINT (frontend) vers l'API déployée
-  [ ] Configurer CORS_ORIGINS (backend) avec le domaine de production
-  [ ] Configurer le SMTP (backend/.env) pour les notifications e-mail
+  [ ] npm run build && npm run lint && npm test && npm run e2e  -> vert
+  [ ] Configurer VITE_CONTACT_ENDPOINT vers une API si un backend est ajouté
   [ ] Vérifier Lighthouse (Perf/A11y/SEO/Best Practices) sur le déploiement
-  [ ] Si l'API ou l'analytics sont sur un AUTRE domaine que le site : ajouter ce
-      domaine dans la CSP (connect-src / script-src) -> nginx.conf, vercel.json,
-      netlify.toml. Sinon le formulaire / le suivi seront bloqués par la CSP.
 ========================================================================

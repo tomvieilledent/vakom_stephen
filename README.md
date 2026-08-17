@@ -23,114 +23,90 @@ Création originale — aucun contenu, code ou visuel n'est copié du site Vakom
   (honeypot), RGPD (consentement), avec repli `mailto` si l'API est absente.
 - **RGPD & confidentialité** : bannière de consentement + analytics opt-in
   (Plausible), désactivés par défaut — aucun traceur sans accord explicite.
-- **Sécurité** : en-têtes durcis (CSP, X-Frame-Options, nosniff, Referrer-Policy,
-  Permissions-Policy) côté Nginx / Vercel / Netlify.
-- **Qualité** : TypeScript strict, ESLint 0 warning, **27 tests Vitest** +
-  **6 tests pytest**, CI GitHub Actions.
-- **Backend optionnel** FastAPI + SQLAlchemy (SQLite en dev, PostgreSQL en
-  prod), rate-limiting, notification e-mail SMTP, tests inclus.
+- **Qualité** : ESLint 0 warning, **37 tests Vitest**, 4 tests e2e Playwright,
+  CI GitHub Actions.
 
 ## 🧱 Stack
 
-| Frontend | Backend (optionnel) | Outillage |
-| --- | --- | --- |
-| Vite · React 18 · TypeScript strict | FastAPI · SQLAlchemy 2 | ESLint · Prettier |
-| Tailwind CSS · Framer Motion | Pydantic v2 · SlowAPI | Docker · docker-compose |
-| React Router · React Hook Form · Zod | PostgreSQL / SQLite | Vercel · Netlify · Railway |
+Vite · React 18 · JavaScript · Tailwind CSS · Framer Motion · React Router ·
+React Hook Form · Zod · ESLint · Prettier
 
-## 🚀 Démarrage rapide (frontend)
+## 🚀 Démarrage rapide
 
 ```bash
 npm install
 cp .env.example .env      # ajuste VITE_CONTACT_ENDPOINT si besoin
-npm run dev               # http://localhost:5173
+npm run dev                # http://localhost:5173
 ```
 
 Scripts disponibles :
 
 ```bash
-npm run dev        # serveur de développement
-npm run build      # build de production (tsc + vite) -> dist/
-npm run preview    # prévisualise le build
-npm run lint       # ESLint (0 warning toléré)
-npm run typecheck  # vérification TypeScript
-npm test           # tests unitaires (Vitest)
-npm run e2e        # tests end-to-end (Playwright)
-npm run prerender  # (re)génère le SSG + sitemap dans dist/ (lancé auto au build)
-npm run format     # Prettier
+npm run dev          # serveur de développement
+npm run build        # build de production -> dist/
+npm run preview      # prévisualise le build
+npm run lint         # ESLint (0 warning toléré)
+npm test             # tests unitaires (Vitest)
+npm run e2e          # tests end-to-end (Playwright)
+npm run prerender    # (re)génère le SSG + sitemap dans dist/ (lancé auto au build)
+npm run format       # Prettier
 ```
 
 > **SEO — pré-rendu statique (SSG).** Après `vite build`, le script
-> `scripts/prerender.ts` génère un `index.html` par route avec ses propres
+> `scripts/prerender.js` génère un `index.html` par route avec ses propres
 > métadonnées (title, description, OG, canonical) et régénère `sitemap.xml`
-> depuis une source unique (`src/config/seo.ts` + articles). Chaque URL renvoie
-> ainsi un HTML correct pour les moteurs et les aperçus sociaux, sans exécuter
-> de JS.
+> depuis une source unique (`src/config/seo.js` + articles), ainsi qu'un
+> `404.html` (repli SPA pour GitHub Pages). Chaque URL renvoie ainsi un HTML
+> correct pour les moteurs et les aperçus sociaux, sans exécuter de JS.
 
-## 🛠 Backend (formulaire de contact)
+## 🛠 Formulaire de contact
 
-Nécessaire uniquement si vous souhaitez **stocker** les messages et/ou recevoir
-une **notification e-mail**. Sans backend, le formulaire propose un repli
-`mailto` automatique.
-
-```bash
-cd backend
-python -m venv .venv && source .venv/bin/activate
-pip install -r requirements-dev.txt
-cp .env.example .env
-alembic upgrade head               # applique les migrations (schéma DB)
-uvicorn app.main:app --reload      # http://localhost:8000  (docs: /docs)
-pytest                             # lance les tests
-```
-
-Endpoints : `POST /api/contact`, `GET /api/health`.
-
-## 🐳 Docker
-
-```bash
-# Stack complète : Postgres + API + site (Nginx)
-docker compose up --build
-# Site      -> http://localhost:8080
-# API       -> http://localhost:8000/docs
-```
+Aucun backend n'est requis : le formulaire tente un `POST` vers
+`VITE_CONTACT_ENDPOINT` (`/api/contact` par défaut) et propose automatiquement
+un repli `mailto` pré-rempli si aucune API ne répond — le site fonctionne donc
+entièrement en statique.
 
 ## ☁️ Déploiement
 
-- **Vercel / Netlify** (frontend statique) : configuration fournie
-  (`vercel.json`, `netlify.toml`), fallback SPA + en-têtes de sécurité + cache.
-  Build : `npm run build`, dossier de sortie : `dist`.
-- **Railway** (backend) : `backend/railway.json` (Dockerfile + healthcheck).
-  Ajoutez un service PostgreSQL et renseignez `DATABASE_URL` + `CORS_ORIGINS`.
-- Pointez `VITE_CONTACT_ENDPOINT` du frontend vers l'URL publique de l'API.
+Le site est déployé en statique sur **GitHub Pages** (project page), sous
+`/vakom_stephen/` :
+
+```bash
+npm run build
+npx gh-pages -d dist
+```
+
+Le `base` de `vite.config.js` (`/vakom_stephen/`) et le `.nojekyll` (dans
+`public/`) sont nécessaires pour que GitHub Pages serve correctement les
+assets sous ce sous-chemin.
 
 ## 📁 Structure
 
 ```
-├── public/                 # favicon, robots, sitemap, og-image, manifest, _redirects
+├── public/                 # favicon, robots, sitemap, og-image, manifest, .nojekyll
 ├── src/
 │   ├── components/
-│   │   ├── brand/          # logo / signature
 │   │   ├── forms/          # formulaire de contact + champs
-│   │   ├── layout/         # header, footer, layout, scroll-to-top
-│   │   ├── sections/       # sections réutilisables (hero, grilles, CTA…)
-│   │   ├── ui/             # primitives (Button, Section, Reveal, icônes…)
-│   │   └── CookieConsent   # bannière de consentement RGPD
-│   ├── config/             # site.ts, content.ts, articles.ts (contenu éditorial)
-│   ├── lib/                # helpers (cn, useSeo, format, analytics, schéma Zod)
-│   ├── pages/              # une page par route (+ Article dynamique)
-│   ├── test/               # setup Vitest + helper de rendu
-│   └── types/              # types partagés
-├── backend/                # API FastAPI (optionnelle)
-├── Dockerfile · nginx.conf · docker-compose.yml
-└── vercel.json · netlify.toml
+│   │   ├── layout/          # header, footer, layout, scroll-to-top
+│   │   ├── sections/        # sections réutilisables (hero, grilles, CTA…)
+│   │   ├── ui/               # primitives (Button, Section, Reveal, icônes…)
+│   │   ├── CookieConsent.jsx # bannière de consentement RGPD
+│   │   ├── Logo.jsx          # signature du consultant
+│   │   └── JsonLd.jsx        # données structurées schema.org
+│   ├── config/              # site.js, content.js, seo.js, articles.js (contenu éditorial)
+│   ├── lib/                 # helpers (cn, useSeo, format, analytics, schéma Zod)
+│   ├── pages/                # une page par route (+ Article dynamique)
+│   └── test/                 # setup Vitest + helper de rendu
+├── scripts/prerender.js     # SSG léger + sitemap (exécuté au build)
+└── e2e/                     # tests Playwright
 ```
 
 ## ✏️ Personnalisation du contenu
 
 Tout le contenu éditorial est centralisé :
 
-- `src/config/site.ts` — identité, coordonnées, mentions légales.
-- `src/config/content.ts` — expertises, méthode, valeurs, témoignages, FAQ,
+- `src/config/site.js` — identité, coordonnées, mentions légales.
+- `src/config/content.js` — expertises, méthode, valeurs, témoignages, FAQ,
   ressources, statistiques.
 
 Aucune donnée en dur dans les composants : la mise à jour ne demande pas de

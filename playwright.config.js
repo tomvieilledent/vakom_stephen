@@ -1,0 +1,25 @@
+import { defineConfig, devices } from '@playwright/test';
+
+/**
+ * Tests E2E — exécutés contre le build de production servi par `vite preview`
+ * (donc y compris le pré-rendu SSG). `webServer` construit et sert l'app.
+ */
+export default defineConfig({
+  testDir: './e2e',
+  fullyParallel: true,
+  forbidOnly: !!process.env.CI,
+  retries: process.env.CI ? 1 : 0,
+  reporter: process.env.CI ? 'github' : 'list',
+  use: {
+    // Le build est servi sous /vakom_stephen/ (GitHub Pages project page).
+    baseURL: 'http://localhost:4173/vakom_stephen/',
+    trace: 'on-first-retry',
+  },
+  webServer: {
+    command: 'npm run build && npm run preview -- --port 4173 --strictPort',
+    url: 'http://localhost:4173',
+    reuseExistingServer: !process.env.CI,
+    timeout: 120_000,
+  },
+  projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'] } }],
+});
