@@ -2,7 +2,7 @@ import { act } from 'react';
 import { describe, expect, it } from 'vitest';
 import { screen } from '@testing-library/react';
 import { renderWithRouter } from '@/test/render';
-import { CookieConsent } from './CookieConsent';
+import { CookieConsent } from './PrivacyBanner';
 import { CONSENT_OPEN_EVENT } from '@/lib/analytics';
 
 describe('CookieConsent', () => {

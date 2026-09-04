@@ -4,7 +4,7 @@ import { Header } from './Header';
 import { Footer } from './Footer';
 import { ScrollToTop } from './ScrollToTop';
 import { BackToTop } from './BackToTop';
-import { CookieConsent } from '@/components/CookieConsent';
+import { CookieConsent } from '@/components/PrivacyBanner';
 import { initAnalytics } from '@/lib/analytics';
 
 function RouteFallback() {
