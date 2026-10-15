@@ -24,7 +24,7 @@ function setCanonical(href) {
 /**
  * Gère le SEO par page côté client (title, description, OG, canonical).
  * Léger et suffisant pour une SPA ; pour un SEO indexé au rendu, envisager
- * un pré-rendu statique (vite-plugin-ssg) — voir TODO.txt.
+ * un pré-rendu statique (vite-plugin-ssg).
  */
 export function useSeo({ title, description, path = '' }) {
   useEffect(() => {

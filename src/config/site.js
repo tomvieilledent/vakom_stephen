@@ -6,7 +6,7 @@
  *  - une future migration vers un CMS headless sans réécriture des vues.
  *
  * ⚠️ Les informations personnelles (nom complet, e-mail, téléphone, SIREN,
- *    adresse) sont des valeurs à confirmer par le consultant — voir TODO.txt.
+ *    adresse) sont des valeurs à confirmer par le consultant.
  */
 
 export const SITE = {

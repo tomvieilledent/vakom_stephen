@@ -1,95 +1,46 @@
 ========================================================================
- SITE CONSULTANT VAKOM — ÉTAT & RESTE À FAIRE
- Dernière mise à jour : 10/08/2026
+ SITE VAKOM RODEZ — ÉTAT & RESTE À FAIRE
+ Dernière mise à jour : 15/10/2026
 ========================================================================
 
-ÉTAT ACTUEL : ✅ Site complet (JavaScript, sans backend), compile sans
-  erreur ni warning, déployé sur GitHub Pages.
-  - Frontend : build OK (vite), ESLint 0 warning, Prettier OK,
-      37 tests Vitest OK (schéma contact, articles, useSeo, JsonLd, Button, Logo,
-      Header, FaqAccordion, ContactForm, analytics, CookieConsent, BackToTop).
-  - SEO enrichi : JSON-LD ProfessionalService (accueil) + Article & BreadcrumbList
-      injectés par page d'article (compatibles CSP).
-  - RGPD : bannière de consentement + analytics opt-in (désactivé par défaut),
-      lien « Gérer mes cookies » dans le pied de page (révocable).
-  - UX : bouton « retour en haut » accessible, apparition au défilement.
-  - SSG : pré-rendu par route (métadonnées dans le HTML statique) + sitemap
-      généré automatiquement (aucune dérive) + 404.html (repli GitHub Pages). ✅
-  - E2E Playwright : 4/4 (accueil, navigation, validation formulaire, SSG, 404). ✅
-  - Formulaire de contact : POST vers VITE_CONTACT_ENDPOINT, repli mailto
-      automatique si aucune API ne répond (site 100% statique, sans backend).
-  - 6 pages + 404, SEO, sitemap, robots.
-  - Icônes complètes : favicon.svg + favicon.ico + apple-touch-icon + PWA 192/512.
-  - OG : image raster PNG 1200x630 (+ SVG source), Open Graph + Twitter Card.
-  - Extras : /.well-known/security.txt + humans.txt.
-  - CI GitHub Actions : lint + format:check + tests + build + e2e.
+ÉTAT ACTUEL : site vitrine statique (React + Vite + Tailwind), pré-rendu
+  par route, déployé sur GitHub Pages (branche gh-pages).
+  - Pages : Accueil, À propos, Témoignages, Contact, Mentions légales,
+      Confidentialité, 404.
+  - Contenu éditable sans code : content/contenu.md (consultants,
+      Vakom Rodez, témoignages, chiffres). Plusieurs consultants possibles.
+  - Qualité : lint, Prettier, 32 tests Vitest, build OK, npm audit propre.
+  - Formulaire de contact : POST vers VITE_CONTACT_ENDPOINT, repli mailto.
+  - Analytics opt-in (désactivé tant que VITE_ANALYTICS_DOMAIN est vide).
 
 ------------------------------------------------------------------------
 1. INFORMATIONS RÉELLES À RENSEIGNER (bloquant avant mise en ligne)
 ------------------------------------------------------------------------
 Fichier : src/config/site.js
-  [ ] consultant.fullName  -> nom + prénom complets (actuellement "Stephen")
-  [ ] contact.email        -> e-mail professionnel réel
-  [ ] contact.phone / phoneHref -> numéro réel
-  [ ] contact.linkedin     -> URL du profil LinkedIn
-  [ ] contact.calendarUrl  -> lien de prise de RDV (Calendly…) si souhaité
-  [ ] consultant.location  -> zone géographique réelle
+  [ ] consultant.fullName  -> nom + prénom complets
+  [ ] contact.email / phone / phoneHref -> coordonnées réelles
   [ ] legal.siren          -> SIREN/SIRET réel
   [ ] legal.* (adresse, forme juridique, TVA) dans src/pages/LegalNotice.jsx
   [ ] url (domaine)        -> remplacer stephen-consultant.fr partout :
         - src/config/site.js
-        - index.html (canonical, og:url, og:image)
-        - public/robots.txt, public/sitemap.xml
-        - public/.well-known/security.txt (Contact + Canonical + Expires)
+        - index.html (canonical, og:url, og:image, JSON-LD)
+        - public/robots.txt
+        - public/.well-known/security.txt
         - public/humans.txt
 
 ------------------------------------------------------------------------
-2. CONTENU À VALIDER / PERSONNALISER
+2. CONTENU À VALIDER
 ------------------------------------------------------------------------
-  [ ] Photo du consultant : remplacer le monogramme "S" par une vraie photo
-        - src/components/sections/HomeHero.jsx (bloc "Monogramme")
-        - src/pages/About.jsx (bloc portrait)
-        - Ajouter l'image dans public/ (ex. public/portrait.jpg, format 4:5)
-  [ ] Témoignages : remplacer par de vrais retours clients (avec accord)
-        -> src/config/content.js (TESTIMONIALS)
-  [ ] Statistiques : ajuster les chiffres réels -> content.js (STATS)
-  [ ] Parcours (dates/étapes) -> src/pages/About.jsx (JOURNEY)
+  [ ] Témoignages et chiffres de content/contenu.md : ce sont des EXEMPLES
+  [ ] Photo de Rodez (public/rodez.jpg, filigrane Adobe Stock) : à remplacer
+      par l'image achetée
+  [ ] Textes des consultants à valider
 
 ------------------------------------------------------------------------
-3. VISUELS / SEO
+3. AVANT MISE EN PRODUCTION
 ------------------------------------------------------------------------
-  [x] og-image : version raster PNG 1200x630 générée (public/og-image.png) et
-      référencée dans index.html (SVG source conservé). Twitter Card OK.
-  [x] favicon.ico + apple-touch-icon.png + icônes PWA 192/512 générés et
-      référencés (index.html + site.webmanifest).
-      [ ] Optionnel : remplacer le monogramme par un vrai logo si le consultant
-          en dispose (regénérer alors les icônes depuis le nouveau SVG).
-
-------------------------------------------------------------------------
-4. AMÉLIORATIONS POSSIBLES (non bloquant)
-------------------------------------------------------------------------
-  [x] Pré-rendu statique (SSG) : script scripts/prerender.js (postbuild) génère
-      un HTML par route avec métadonnées propres + sitemap.xml + 404.html.
-      Source unique src/config/seo.js.
-  [x] Mesure d'audience respectueuse + bannière de consentement RGPD implémentées
-      (src/lib/analytics.js, src/components/CookieConsent.jsx). Désactivées par
-      défaut : activer en renseignant VITE_ANALYTICS_DOMAIN. Aucun script chargé
-      sans consentement. Page confidentialité mise à jour. 5 tests dédiés.
-      [ ] Choisir la solution (Plausible cloud / auto-hébergé, Matomo…) et la clé.
-  [ ] CAPTCHA (hCaptcha/Turnstile) si spam malgré le honeypot.
-  [x] Tests unitaires Vitest (schéma de contact + articles).
-  [x] Tests composants Testing Library (Button, Logo, Header, FaqAccordion,
-      ContactForm, useSeo, JsonLd, analytics, CookieConsent, BackToTop).
-  [x] Tests E2E Playwright (e2e/smoke.spec.js) : accueil + navigation, validation
-      du formulaire, titre pré-rendu par route, page 404. 4/4.
-  [ ] Backend (formulaire de contact avec stockage + notification e-mail) si
-      besoin un jour : le site fonctionne entièrement sans, via le repli mailto.
-  [ ] Blog dynamique / CMS headless si publication régulière d'articles.
-
-------------------------------------------------------------------------
-5. AVANT MISE EN PRODUCTION — CHECKLIST
-------------------------------------------------------------------------
-  [ ] npm run build && npm run lint && npm test && npm run e2e  -> vert
-  [ ] Configurer VITE_CONTACT_ENDPOINT vers une API si un backend est ajouté
-  [ ] Vérifier Lighthouse (Perf/A11y/SEO/Best Practices) sur le déploiement
+  [ ] npm run lint && npm test && npm run build -> vert
+  [ ] Installer le navigateur Playwright puis lancer npm run e2e
+  [ ] Lighthouse (Perf / A11y / SEO) sur le déploiement
+  [ ] Configurer VITE_CONTACT_ENDPOINT si un backend est ajouté
 ========================================================================
