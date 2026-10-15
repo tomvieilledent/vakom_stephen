@@ -57,7 +57,7 @@ export function SubNav() {
               href={`#${item.id}`}
               aria-current={active === item.id ? 'true' : undefined}
               className={cn(
-                'relative block rounded-full px-4 py-1.5 text-sm font-medium transition-colors',
+                'group relative block rounded-full px-4 py-1.5 text-sm font-medium transition-colors',
                 active === item.id ? 'text-brand-700' : 'text-white/85 hover:text-white',
               )}
             >
@@ -69,7 +69,7 @@ export function SubNav() {
                 />
               )}
               {active !== item.id && (
-                <span className="absolute inset-0 rounded-full bg-white/0 transition-colors hover:bg-white/15" />
+                <span className="absolute inset-0 rounded-full bg-white/0 transition-colors group-hover:bg-white/15" />
               )}
               <span className="relative">{item.label}</span>
             </a>
