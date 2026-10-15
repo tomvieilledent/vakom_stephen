@@ -45,6 +45,7 @@ const BUBBLES = [
     title: 'Recrutement & évaluation',
     span: 'lg:col-span-2 lg:row-span-2',
     radius: 'rounded-[2rem] rounded-bl-[6rem]',
+    pad: 'pb-8 pl-10 sm:pb-10 sm:pl-14',
     big: true,
     text: 'Pour attirer, identifier et faire grandir les talents !',
     color: 'bg-[#c8267f]',
@@ -65,6 +66,7 @@ const BUBBLES = [
     title: 'Conférence',
     span: 'lg:col-span-2',
     radius: 'rounded-[2rem] rounded-bl-[5rem]',
+    pad: 'pb-7 pl-9 sm:pl-10',
     big: false,
     text: 'Pour vivre et faire vivre des moments privilégiés.',
     color: 'bg-[#771f8b]',
@@ -90,7 +92,7 @@ export function ExpertiseBubbles() {
             animate={reduce ? undefined : { y: [0, i % 2 ? -6 : 6, 0] }}
             transition={{ duration: 6 + i * 0.6, repeat: Infinity, ease: 'easeInOut' }}
             whileHover={{ scale: 1.03 }}
-            className={`group relative flex h-full flex-col overflow-hidden p-6 text-white shadow-soft transition-shadow duration-300 hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-900 focus-visible:ring-offset-2 ${b.radius} ${b.color} ${b.big ? 'sm:p-8' : ''}`}
+            className={`group relative flex h-full flex-col overflow-hidden p-6 text-white shadow-soft transition-shadow duration-300 hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-900 focus-visible:ring-offset-2 ${b.radius} ${b.color} ${b.big ? 'sm:p-8' : ''} ${b.pad ?? ''}`}
           >
             <b.icon
               aria-hidden
