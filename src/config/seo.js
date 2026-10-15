@@ -25,14 +25,6 @@ export const PAGE_SEO = {
     priority: 0.8,
     changefreq: 'monthly',
   },
-  expertise: {
-    title: 'Expertises',
-    description:
-      'Management, recrutement, cohésion d’équipe, développement des talents, conduite du changement et qualité de vie au travail : mes domaines d’accompagnement.',
-    path: '/expertises',
-    priority: 0.9,
-    changefreq: 'monthly',
-  },
   methodology: {
     title: 'Méthodologie',
     description:

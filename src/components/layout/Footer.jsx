@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { NAV_LINKS, SITE } from '@/config/site';
 import { Logo } from '@/components/Logo';
-import { IconLinkedin, IconMail, IconMapPin } from '@/components/ui/icons';
+import { IconArrowUpRight, IconLinkedin, IconMail, IconMapPin } from '@/components/ui/icons';
 import { isAnalyticsConfigured, openConsentBanner, resetConsent } from '@/lib/analytics';
 
 const LEGAL_LINKS = [
@@ -28,10 +28,11 @@ export function Footer() {
                 href={SITE.contact.linkedin}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-ink-800 text-ink-100 transition-colors hover:bg-brand-500 hover:text-white"
-                aria-label="Profil LinkedIn"
+                className="group inline-flex items-center gap-2.5 rounded-full bg-[#0a66c2] px-5 py-2.5 text-sm font-semibold text-white shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#0b5cad] hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0a66c2] focus-visible:ring-offset-2"
               >
                 <IconLinkedin className="h-5 w-5" />
+                Me suivre sur LinkedIn
+                <IconArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </a>
               <a
                 href={`mailto:${SITE.contact.email}`}
@@ -49,10 +50,21 @@ export function Footer() {
             </h2>
             <ul className="mt-4 space-y-3 text-sm">
               {NAV_LINKS.map((link) => (
-                <li key={link.to}>
-                  <Link to={link.to} className="text-ink-200 transition-colors hover:text-white">
-                    {link.label}
-                  </Link>
+                <li key={link.to ?? link.href}>
+                  {link.href ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-ink-200 transition-colors hover:text-white"
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link to={link.to} className="text-ink-200 transition-colors hover:text-white">
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

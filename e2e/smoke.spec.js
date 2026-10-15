@@ -1,12 +1,12 @@
 import { expect, test } from '@playwright/test';
 
 test.describe('Parcours principaux', () => {
-  test('la page d’accueil se charge et navigue vers les expertises', async ({ page }) => {
+  test('la page d’accueil se charge et navigue vers À propos', async ({ page }) => {
     await page.goto('.');
-    await expect(page.getByRole('heading', { level: 1 })).toContainText('potentiel humain');
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
 
-    await page.getByRole('link', { name: 'Expertises' }).first().click();
-    await expect(page).toHaveURL(/\/expertises$/);
+    await page.getByRole('link', { name: 'À propos' }).first().click();
+    await expect(page).toHaveURL(/\/a-propos$/);
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
   });
 

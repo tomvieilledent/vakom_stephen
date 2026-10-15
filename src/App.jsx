@@ -5,7 +5,6 @@ import Home from '@/pages/Home';
 
 // Lazy-loading des pages secondaires pour alléger le bundle initial.
 const About = lazy(() => import('@/pages/About'));
-const Expertise = lazy(() => import('@/pages/Expertise'));
 const Methodology = lazy(() => import('@/pages/Methodology'));
 const Testimonials = lazy(() => import('@/pages/Testimonials'));
 const Resources = lazy(() => import('@/pages/Resources'));
@@ -21,7 +20,6 @@ export default function App() {
       <Route element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="a-propos" element={<About />} />
-        <Route path="expertises" element={<Expertise />} />
         <Route path="methodologie" element={<Methodology />} />
         <Route path="temoignages" element={<Testimonials />} />
         <Route path="ressources" element={<Resources />} />

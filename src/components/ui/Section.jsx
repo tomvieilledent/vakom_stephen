@@ -3,8 +3,8 @@ import { Reveal } from './Reveal';
 
 const SPACING = {
   sm: 'py-14 sm:py-16',
-  md: 'py-20 sm:py-24',
-  lg: 'py-24 sm:py-32',
+  md: 'py-12 sm:py-16',
+  lg: 'py-14 sm:py-20',
 };
 
 export function Section({ children, id, className, spacing = 'md' }) {

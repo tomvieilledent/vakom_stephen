@@ -3,14 +3,14 @@ import { render } from '@testing-library/react';
 import { useSeo } from './useSeo';
 
 function Probe() {
-  useSeo({ title: 'Expertises', description: 'Ma description de test.', path: '/expertises' });
+  useSeo({ title: 'À propos', description: 'Ma description de test.', path: '/a-propos' });
   return null;
 }
 
 describe('useSeo', () => {
   it('met à jour le titre du document', () => {
     render(<Probe />);
-    expect(document.title).toContain('Expertises');
+    expect(document.title).toContain('À propos');
   });
 
   it('renseigne la meta description', () => {
@@ -22,6 +22,6 @@ describe('useSeo', () => {
   it('définit l’URL canonique', () => {
     render(<Probe />);
     const canonical = document.head.querySelector('link[rel="canonical"]');
-    expect(canonical?.getAttribute('href')).toContain('/expertises');
+    expect(canonical?.getAttribute('href')).toContain('/a-propos');
   });
 });

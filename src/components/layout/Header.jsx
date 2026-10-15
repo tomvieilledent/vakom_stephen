@@ -5,6 +5,7 @@ import { NAV_LINKS } from '@/config/site';
 import { cn } from '@/lib/cn';
 import { Logo } from '@/components/Logo';
 import { Button } from '@/components/ui/Button';
+import { SubNav } from './SubNav';
 import { IconClose, IconMenu } from '@/components/ui/icons';
 
 export function Header() {
@@ -52,14 +53,26 @@ export function Header() {
         Aller au contenu
       </a>
       <div className="container flex h-18 items-center justify-between py-3">
-        <Logo />
+        <Logo className="-ml-2 lg:-ml-4" />
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Navigation principale">
-          {NAV_LINKS.map((link) => (
-            <NavLink key={link.to} to={link.to} className={linkClass}>
-              {link.label}
-            </NavLink>
-          ))}
+          {NAV_LINKS.map((link) =>
+            link.href ? (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={linkClass({ isActive: false })}
+              >
+                {link.label}
+              </a>
+            ) : (
+              <NavLink key={link.to} to={link.to} end={link.to === '/'} className={linkClass}>
+                {link.label}
+              </NavLink>
+            ),
+          )}
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
@@ -79,6 +92,8 @@ export function Header() {
         </button>
       </div>
 
+      <SubNav />
+
       <AnimatePresence>
         {open && (
           <motion.div
@@ -89,22 +104,35 @@ export function Header() {
             className="overflow-hidden border-t border-ink-100 bg-sand-50 lg:hidden"
           >
             <nav className="container flex flex-col gap-1 py-4" aria-label="Navigation mobile">
-              {NAV_LINKS.map((link) => (
-                <NavLink
-                  key={link.to}
-                  to={link.to}
-                  className={({ isActive }) =>
-                    cn(
-                      'rounded-xl px-4 py-3 text-base font-medium transition-colors',
-                      isActive
-                        ? 'bg-white text-brand-600 shadow-soft'
-                        : 'text-ink-700 hover:bg-white',
-                    )
-                  }
-                >
-                  {link.label}
-                </NavLink>
-              ))}
+              {NAV_LINKS.map((link) =>
+                link.href ? (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-xl px-4 py-3 text-base font-medium text-ink-700 transition-colors hover:bg-white"
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <NavLink
+                    key={link.to}
+                    to={link.to}
+                    end={link.to === '/'}
+                    className={({ isActive }) =>
+                      cn(
+                        'rounded-xl px-4 py-3 text-base font-medium transition-colors',
+                        isActive
+                          ? 'bg-white text-brand-600 shadow-soft'
+                          : 'text-ink-700 hover:bg-white',
+                      )
+                    }
+                  >
+                    {link.label}
+                  </NavLink>
+                ),
+              )}
               <Button to="/contact" size="lg" variant="primary" className="mt-2 w-full">
                 Prendre contact
               </Button>

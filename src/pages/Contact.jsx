@@ -77,9 +77,9 @@ export default function Contact() {
                     href={SITE.contact.linkedin}
                     target="_blank"
                     rel="noreferrer noopener"
-                    className="flex items-center gap-4 rounded-3xl border border-ink-100 bg-white p-5 shadow-soft transition-colors hover:border-brand-200"
+                    className="group flex items-center gap-4 rounded-3xl border border-ink-100 bg-white p-5 shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:border-[#0a66c2] hover:shadow-lift"
                   >
-                    <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-50 text-brand-600">
+                    <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#0a66c2] text-white">
                       <IconLinkedin className="h-5 w-5" />
                     </span>
                     <span>
