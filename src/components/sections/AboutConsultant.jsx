@@ -34,6 +34,9 @@ export function AboutConsultant({ consultant, reverse = false }) {
               src={`${BASE}${photo}`}
               alt={`Portrait de ${firstName}`}
               loading="lazy"
+              decoding="async"
+              width={640}
+              height={640}
               className="aspect-[4/5] w-full rounded-5xl object-cover object-[50%_25%] shadow-lift"
             />
             <div className="absolute -bottom-5 -right-3 rounded-2xl border border-ink-100 bg-white px-5 py-4 shadow-lift">
@@ -79,13 +82,13 @@ export function AboutValues() {
         <SectionHeading
           align="center"
           tone="light"
-          eyebrow="Mes valeurs"
+          eyebrow="Nos valeurs"
           title={
             <>
-              Ce qui <Highlight tone="light">guide</Highlight> chacune de mes interventions
+              Ce qui <Highlight tone="light">guide</Highlight> chacune de nos interventions
             </>
           }
-          description="Quatre convictions qui font la cohérence de mon accompagnement, dans le droit fil des valeurs Vakom."
+          description="Quatre convictions qui font la cohérence de notre accompagnement, dans le droit fil des valeurs Vakom."
           className="mb-12"
         />
         <ValuesGrid />

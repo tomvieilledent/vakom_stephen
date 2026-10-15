@@ -14,7 +14,7 @@ Règles de format (à respecter pour que le site lise bien le fichier) :
 ## Consultants
 
 ### Stephen
-- Photo : stephen.png
+- Photo : stephen.webp
 - Rôle : Consultant Vakom
 - LinkedIn : https://www.linkedin.com/in/stephen-keller-56aa90158/
 - Titre : Du management de terrain à l’**accompagnement humain**

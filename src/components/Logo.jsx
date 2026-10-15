@@ -15,6 +15,8 @@ export function Logo({ tone = 'dark', className }) {
       <img
         src={`${BASE}${tone === 'light' ? 'logo-vakom-blanc.png' : 'logo-vakom-rose.png'}`}
         alt=""
+        width={960}
+        height={684}
         className="h-11 w-auto"
       />
       <span className="flex flex-col leading-tight">

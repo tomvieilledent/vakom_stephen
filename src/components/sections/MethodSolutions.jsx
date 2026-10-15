@@ -80,6 +80,9 @@ export function MethodSolutions() {
                     src={`${BASE}solutions/${s.logo}`}
                     alt={s.alt}
                     loading="lazy"
+                    decoding="async"
+                    width={500}
+                    height={300}
                     className="mx-auto h-20 w-auto sm:h-24 max-w-full object-contain"
                   />
                 </div>

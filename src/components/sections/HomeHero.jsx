@@ -32,6 +32,8 @@ export function HomeHero() {
           <img
             src={`${BASE}logo-vakom-blanc.png`}
             alt="Vakom, le sens de l’humain"
+            width={960}
+            height={684}
             className="h-28 w-auto sm:h-36 lg:h-40"
           />
           <h1 className="mt-10 font-display text-white text-3xl font-bold uppercase [text-shadow:0_2px_12px_rgb(0_0_0/0.25)] leading-tight sm:text-4xl lg:text-5xl">

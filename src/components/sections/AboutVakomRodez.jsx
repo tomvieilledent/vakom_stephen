@@ -43,6 +43,7 @@ export function AboutVakomRodez() {
             src={`${BASE}rodez.jpg`}
             alt="Vue de Rodez"
             loading="lazy"
+            decoding="async"
             className="aspect-[4/5] w-full rounded-5xl object-cover shadow-lift"
           />
         </Reveal>
