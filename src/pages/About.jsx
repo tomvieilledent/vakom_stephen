@@ -10,6 +10,7 @@ export default function About() {
 
   return (
     <>
+      <h1 className="sr-only">À propos de Vakom Rodez</h1>
       {CONSULTANTS.map((consultant, i) => (
         <AboutConsultant key={consultant.firstName} consultant={consultant} reverse={i % 2 === 1} />
       ))}
