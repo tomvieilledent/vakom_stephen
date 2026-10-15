@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
-import { IconArrowRight } from '@/components/ui/icons';
+import { IconArrowRight, IconMapPin } from '@/components/ui/icons';
 
 const BASE = import.meta.env.BASE_URL;
 
@@ -32,10 +32,14 @@ export function HomeHero() {
           <img
             src={`${BASE}logo-vakom-blanc.png`}
             alt="Vakom, le sens de l’humain"
-            className="h-24 w-auto sm:h-28"
+            className="h-28 w-auto sm:h-36 lg:h-40"
           />
           <h1 className="mt-10 font-display text-white text-3xl font-bold uppercase [text-shadow:0_2px_12px_rgb(0_0_0/0.25)] leading-tight sm:text-4xl lg:text-5xl">
             Votre partenaire en ressources &amp; relations humaines
+            <span className="mt-4 flex w-fit items-center gap-2 rounded-full border border-white/50 bg-white/15 px-4 py-1 backdrop-blur-sm [text-shadow:none] sm:text-3xl lg:text-4xl">
+              <IconMapPin aria-hidden className="h-[0.8em] w-[0.8em] shrink-0" />
+              Rodez
+            </span>
           </h1>
           <p className="mt-6 text-lg font-normal text-white">
             Conseil, Formation, Coaching, Conférence, Recrutement, Évaluation, Orientation
