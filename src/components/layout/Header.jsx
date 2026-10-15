@@ -53,7 +53,7 @@ export function Header() {
         Aller au contenu
       </a>
       <div className="container flex h-18 items-center justify-between py-3">
-        <Logo className="-ml-2 lg:-ml-4" />
+        <Logo className="lg:-ml-4" />
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Navigation principale">
           {NAV_LINKS.map((link) =>

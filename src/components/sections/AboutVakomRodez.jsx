@@ -1,3 +1,4 @@
+import { Highlight } from '@/components/ui/Highlight';
 import { Section, SectionHeading } from '@/components/ui/Section';
 import { Reveal } from '@/components/ui/Reveal';
 import { Button } from '@/components/ui/Button';
@@ -11,7 +12,14 @@ export function AboutVakomRodez() {
     <Section id="vakom-rodez" className="bg-sand-100" spacing="lg">
       <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
         <div>
-          <SectionHeading eyebrow="Vakom Rodez" title="Le sens de l’humain, au plus près de vous" />
+          <SectionHeading
+            eyebrow="Vakom Rodez"
+            title={
+              <>
+                Le sens de <Highlight>l’humain</Highlight>, au plus près de vous
+              </>
+            }
+          />
           <div className="prose-clean mt-6 max-w-xl text-ink-600">
             <p>
               Vakom est un réseau de cabinets de conseil en ressources et relations humaines,

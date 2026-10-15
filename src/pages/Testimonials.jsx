@@ -1,6 +1,7 @@
 import { useSeo } from '@/lib/useSeo';
 import { PAGE_SEO } from '@/config/seo';
 import { PageHero } from '@/components/sections/PageHero';
+import { Highlight } from '@/components/ui/Highlight';
 import { Section, SectionHeading } from '@/components/ui/Section';
 import { TestimonialGrid } from '@/components/sections/TestimonialGrid';
 import { StatsRow } from '@/components/sections/StatsRow';
@@ -45,7 +46,11 @@ export default function Testimonials() {
       <Section className="bg-sand-100" spacing="lg">
         <SectionHeading
           eyebrow="Quelques résultats"
-          title="Des accompagnements qui portent leurs fruits"
+          title={
+            <>
+              Des accompagnements qui portent leurs <Highlight>fruits</Highlight>
+            </>
+          }
           description="Exemples représentatifs d’interventions (anonymisés par respect de la confidentialité)."
           className="mb-12"
         />

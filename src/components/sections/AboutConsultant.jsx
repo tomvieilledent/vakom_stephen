@@ -1,3 +1,4 @@
+import { Highlight } from '@/components/ui/Highlight';
 import { Section, SectionHeading } from '@/components/ui/Section';
 import { Reveal } from '@/components/ui/Reveal';
 import { Button } from '@/components/ui/Button';
@@ -31,7 +32,11 @@ export function AboutConsultant() {
           <div>
             <SectionHeading
               eyebrow="À propos de moi"
-              title="Du management de terrain à l’accompagnement humain"
+              title={
+                <>
+                  Du management de terrain à l’<Highlight>accompagnement humain</Highlight>
+                </>
+              }
             />
             <div className="prose-clean mt-6 max-w-xl text-ink-600">
               <p>
@@ -76,7 +81,11 @@ export function AboutConsultant() {
             align="center"
             tone="light"
             eyebrow="Mes valeurs"
-            title="Ce qui guide chacune de mes interventions"
+            title={
+              <>
+                Ce qui <Highlight tone="light">guide</Highlight> chacune de mes interventions
+              </>
+            }
             description="Quatre convictions qui font la cohérence de mon accompagnement, dans le droit fil des valeurs Vakom."
             className="mb-12"
           />

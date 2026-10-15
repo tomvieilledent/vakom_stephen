@@ -72,15 +72,15 @@ export function MethodSolutions() {
           <Reveal as="div" key={s.logo} delay={(i % 3) * 0.07} className="h-full">
             <Tag
               {...link}
-              className="group relative flex h-full flex-col justify-between gap-6 rounded-2xl border border-ink-200 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-brand-300 hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
+              className="group relative flex h-full flex-col justify-between gap-3 rounded-2xl border border-ink-200 bg-white p-5 sm:gap-4 sm:p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-300 hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
             >
-              <div className="flex flex-1 items-center py-4">
+              <div className="flex flex-1 items-center">
                 <div className="w-full">
                   <img
                     src={`${BASE}solutions/${s.logo}`}
                     alt={s.alt}
                     loading="lazy"
-                    className="mx-auto h-24 w-auto max-w-full object-contain"
+                    className="mx-auto h-20 w-auto sm:h-24 max-w-full object-contain"
                   />
                 </div>
               </div>

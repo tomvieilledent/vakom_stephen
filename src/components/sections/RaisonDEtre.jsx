@@ -1,3 +1,4 @@
+import { Highlight } from '@/components/ui/Highlight';
 import { Section } from '@/components/ui/Section';
 import { Reveal } from '@/components/ui/Reveal';
 
@@ -31,25 +32,7 @@ export function RaisonDEtre() {
             Ma raison d’être
           </span>
           <h2 className="mt-5 text-display-sm text-ink-900">
-            La performance durable naît d’abord des{' '}
-            <span className="relative whitespace-nowrap text-brand-600">
-              relations humaines
-              <svg
-                aria-hidden
-                viewBox="0 0 300 12"
-                className="absolute -bottom-1.5 left-0 h-2.5 w-full text-brand-300"
-                preserveAspectRatio="none"
-              >
-                <path
-                  d="M2 8c60-6 120-6 180-3s90 3 116-2"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="4"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </span>
-            .
+            La performance durable naît d’abord des <Highlight>relations humaines</Highlight>.
           </h2>
           <p className="mt-6 max-w-md text-lg leading-relaxed text-ink-600">
             Derrière chaque enjeu d’organisation, il y a des femmes et des hommes. Mon métier
@@ -61,7 +44,7 @@ export function RaisonDEtre() {
         <ol className="border-b border-ink-200">
           {POINTS.map((p, i) => (
             <Reveal as="li" key={p.title} delay={i * 0.08}>
-              <div className="group relative grid grid-cols-[auto_1fr] items-baseline gap-x-6 border-t border-ink-200 py-7 transition-colors duration-300 hover:border-brand-500 sm:gap-x-8">
+              <div className="group relative grid grid-cols-[3.25rem_1fr] items-baseline gap-x-4 sm:grid-cols-[4.5rem_1fr] border-t border-ink-200 py-7 transition-colors duration-300 hover:border-brand-500 sm:gap-x-8">
                 <span
                   aria-hidden
                   className="font-display text-5xl leading-none text-transparent transition-colors duration-300 [-webkit-text-stroke:1.5px_theme(colors.brand.400)] group-hover:text-brand-500 sm:text-6xl"
