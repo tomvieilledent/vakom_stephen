@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Site vitrine pour un consultant Vakom — en cours de création</title>
+  <meta name="description" content="Site vitrine d'un consultant local du réseau Vakom (ressources et relations humaines). Projet client en cours de création — React, Vite, Tailwind." />
+  <link rel="canonical" href="https://vlldnt.fr/vakom-stephen/" />
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  <link rel="apple-touch-icon" href="./favicon.svg" />
+  <meta name="theme-color" content="#fff7fb" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#16121a" media="(prefers-color-scheme: dark)" />
+  <style>
+    :root {
+      --bg: #fff7fb; --surface: #fdeaf4; --card: #ffffff; --text: #25202b; --muted: #6e6277;
+      --border: #f0d3e3; --heading: #2b1740; --cta: #e5007d; --cta-text: #ffffff; --accent: #e5007d;
+      --ok: #2e8b57; --wip: #d98a00; --todo: #8a7f94;
+      --font-serif: "Fraunces", "Iowan Old Style", Georgia, "Times New Roman", serif;
+      --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color-scheme: light;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #16121a; --surface: #211a28; --card: #1c1623; --text: #efe7f3; --muted: #b3a6bd;
+        --border: #3a2e45; --heading: #ff7cc2; --cta: #ff4fae; --cta-text: #16121a; --accent: #ff4fae;
+        --ok: #6cc795; --wip: #f0b445; --todo: #a99db4; color-scheme: dark; }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font-sans); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    a { color: var(--heading); }
+    img { max-width: 100%; height: auto; display: block; }
+    .wrap { max-width: 66rem; margin: 0 auto; padding: 0 20px; }
+    :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+    header.top { padding: 18px 0; }
+    header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-serif); font-size: 1.25rem; font-weight: 600; color: var(--heading); text-decoration: none; }
+    .brand img { width: 30px; height: 30px; }
+    header.top nav { display: flex; gap: 20px; font-size: 0.92rem; }
+    header.top nav a { color: var(--muted); text-decoration: none; }
+    header.top nav a:hover { color: var(--heading); text-decoration: underline; }
+    @media (max-width: 560px) { header.top nav a:not(:last-child) { display: none; } }
+
+    .hero { padding: clamp(40px, 8vw, 88px) 0 clamp(28px, 5vw, 48px); text-align: center; }
+    .badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--wip); color: var(--wip); font-size: 0.82rem; font-weight: 600; background: var(--card); }
+    .badge i { width: 8px; height: 8px; border-radius: 50%; background: var(--wip); animation: pulse 1.8s ease-in-out infinite; }
+    @keyframes pulse { 50% { opacity: .3; } }
+    h1 { margin: 18px auto 0; max-width: 20ch; font-family: var(--font-serif); font-weight: 600; font-size: clamp(2.2rem, 7vw, 3.8rem); line-height: 1.1; color: var(--heading); }
+    h1 em { font-style: normal; color: var(--accent); }
+    .lead { margin: 20px auto 0; max-width: 40rem; font-size: clamp(1.02rem, 2.3vw, 1.18rem); color: var(--muted); }
+    .cta-row { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    .btn { display: inline-block; padding: 12px 24px; border-radius: 999px; font-weight: 600; font-size: 0.98rem; text-decoration: none; border: 1px solid var(--cta); }
+    .btn.primary { background: var(--cta); color: var(--cta-text); }
+    .btn.ghost { background: transparent; color: var(--heading); border-color: var(--border); }
+    .btn:hover { filter: brightness(1.07); }
+
+    .shot { margin-top: clamp(28px, 5vw, 48px); border: 1px solid var(--border); border-radius: 18px; overflow: hidden; box-shadow: 0 24px 60px -28px rgba(229,0,125,.35); background: var(--card); }
+    .shot .bar { display: flex; gap: 6px; padding: 10px 14px; border-bottom: 1px solid var(--border); background: var(--surface); }
+    .shot .bar i { width: 10px; height: 10px; border-radius: 50%; background: var(--border); }
+
+    section { padding: clamp(32px, 6vw, 64px) 0; }
+    h2 { margin: 0 0 10px; font-family: var(--font-serif); font-weight: 600; font-size: clamp(1.55rem, 4.2vw, 2.1rem); color: var(--heading); line-height: 1.2; }
+    .sub { margin: 0 0 28px; color: var(--muted); max-width: 42rem; }
+
+    .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 22px; }
+    .card h3 { margin: 0 0 6px; font-family: var(--font-serif); font-size: 1.1rem; color: var(--heading); }
+    .card p { margin: 0; color: var(--muted); font-size: 0.96rem; }
+
+    .band { background: var(--surface); border-block: 1px solid var(--border); }
+    .gallery { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); align-items: start; }
+    .gallery figure { margin: 0; }
+    .gallery img { border: 1px solid var(--border); border-radius: 14px; background: var(--card); }
+    .gallery figcaption { margin-top: 8px; font-size: 0.88rem; color: var(--muted); }
+    .gallery .tall img { max-width: 260px; margin: 0 auto; }
+
+    .status { display: grid; gap: 12px; padding: 0; margin: 0; list-style: none; max-width: 40rem; }
+    .status li { display: flex; gap: 12px; align-items: baseline; padding: 14px 18px; background: var(--card); border: 1px solid var(--border); border-radius: 14px; }
+    .status b { flex: none; font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; padding: 2px 10px; border-radius: 999px; border: 1px solid currentColor; }
+    .st-ok { color: var(--ok); } .st-wip { color: var(--wip); } .st-todo { color: var(--todo); }
+    .status span { color: var(--text); }
+
+    .stack { display: flex; flex-wrap: wrap; gap: 10px; padding: 0; margin: 0; list-style: none; }
+    .stack li { padding: 7px 16px; border: 1px solid var(--border); border-radius: 999px; background: var(--card); font-size: 0.9rem; }
+
+    .final { text-align: center; }
+    footer { padding: 28px 0 40px; border-top: 1px solid var(--border); font-size: 0.85rem; color: var(--muted); }
+    footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .badge i { animation: none; } }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <a class="brand" href="./"><img src="./favicon.svg" alt="" />Site vitrine Vakom</a>
+      <nav aria-label="Navigation principale">
+        <a href="#apercu">Aperçu</a>
+        <a href="#avancement">Avancement</a>
+        <a href="#technique">Technique</a>
+        <a href="https://github.com/tomvieilledent/vakom_stephen" rel="noopener">Code source</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <p class="badge"><i></i>Site en cours de création</p>
+        <h1>Un site vitrine pour un <em>consultant local</em> du réseau Vakom</h1>
+        <p class="lead">J'ai conçu et développé le site d'un consultant en ressources et relations humaines du réseau Vakom : expertises, solutions RH, présentation et prise de contact. Un projet client, en cours de réalisation.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="https://tomvieilledent.github.io/vakom_stephen/" rel="noopener">Voir l'aperçu en ligne</a>
+          <a class="btn ghost" href="#apercu">Découvrir le projet</a>
+        </div>
+        <div class="shot" aria-hidden="false">
+          <div class="bar"><i></i><i></i><i></i></div>
+          <img src="./portfolio.png" width="3024" height="1484" alt="Page d'accueil du site : titre « Votre partenaire en ressources et relations humaines » sur un arc rose devant une vue de la ville." />
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>Le projet</h2>
+        <p class="sub">Donner à un consultant du réseau Vakom une présence en ligne claire et locale, dans l'esprit des sites des autres cabinets du réseau, tout en affirmant son ancrage dans sa ville.</p>
+        <div class="grid">
+          <article class="card"><h3>Une page d'accueil guidée</h3><p>Une seule page avec une barre d'ancres : raison d'être, six domaines d'accompagnement, solutions RH Vakom.</p></article>
+          <article class="card"><h3>Lié au réseau Vakom</h3><p>Chaque expertise et chaque solution renvoie vers les pages officielles du réseau national.</p></article>
+          <article class="card"><h3>Contenu modifiable</h3><p>Les présentations et témoignages vivent dans un simple fichier Markdown, modifiable sans toucher au code.</p></article>
+          <article class="card"><h3>Mobile d'abord</h3><p>Conçu pour le téléphone, adapté à la tablette et au poste de travail, sans défilement horizontal.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="apercu" class="band">
+      <div class="wrap">
+        <h2>Aperçu</h2>
+        <p class="sub">Captures de la version actuelle, anonymisées. Les textes de démonstration seront remplacés par le contenu définitif.</p>
+        <div class="gallery">
+          <figure><img src="./expertises.jpg" loading="lazy" alt="Les six domaines d'accompagnement en bulles colorées." /><figcaption>Six domaines d'accompagnement, en grille asymétrique.</figcaption></figure>
+          <figure><img src="./solutions.jpg" loading="lazy" alt="Grille des solutions RH Vakom avec leurs logos." /><figcaption>Les solutions RH Vakom, avec leurs logos officiels.</figcaption></figure>
+          <figure class="tall"><img src="./mobile.jpg" loading="lazy" alt="Version mobile de la page d'accueil." /><figcaption>Version mobile.</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="avancement">
+      <div class="wrap">
+        <h2>Où en est le projet</h2>
+        <p class="sub">Un site vitrine en construction : la structure et le design sont posés, le contenu définitif arrive.</p>
+        <ul class="status">
+          <li><b class="st-ok">Fait</b><span>Structure, navigation par ancres, pages À propos, Témoignages, Contact et mentions légales.</span></li>
+          <li><b class="st-ok">Fait</b><span>Design responsive, SEO de base, pré-rendu statique, consentement RGPD.</span></li>
+          <li><b class="st-wip">En cours</b><span>Direction artistique du hero (photo définitive) et réglage fin du design.</span></li>
+          <li><b class="st-wip">En cours</b><span>Rédaction des textes, témoignages clients, coordonnées et mentions légales.</span></li>
+          <li><b class="st-todo">À venir</b><span>Nom de domaine définitif, mise en ligne et formulaire de contact relié à un envoi d'e-mails.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="technique" class="band">
+      <div class="wrap">
+        <h2>Technique</h2>
+        <p class="sub">Un site statique rapide et testé, déployé sur GitHub Pages pendant la phase de construction.</p>
+        <ul class="stack" aria-label="Technologies utilisées">
+          <li>React 18</li><li>Vite</li><li>Tailwind CSS</li><li>Framer Motion</li><li>React Router</li><li>React Hook Form + Zod</li><li>Vitest</li><li>Playwright</li><li>GitHub Actions</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="final">
+      <div class="wrap">
+        <h2>Suivre l'avancement</h2>
+        <p class="sub" style="margin-inline:auto">L'aperçu en ligne est mis à jour au fil du développement.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="https://tomvieilledent.github.io/vakom_stephen/" rel="noopener">Voir l'aperçu en ligne</a>
+          <a class="btn ghost" href="https://github.com/tomvieilledent/vakom_stephen" rel="noopener">Code source</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>Projet client — conception et développement : Tom Vieilledent</span>
+      <a href="https://vlldnt.fr">← Retour au portfolio</a>
+    </div>
+  </footer>
+</body>
+</html>
