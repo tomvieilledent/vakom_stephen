@@ -27,10 +27,7 @@ export function RaisonDEtre() {
     <Section id="raison-etre" spacing="lg">
       <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
         <Reveal className="lg:sticky lg:top-36 lg:self-start">
-          <span className="eyebrow">
-            <span className="h-px w-6 bg-current opacity-60" aria-hidden />
-            Ma raison d’être
-          </span>
+          <span className="eyebrow">Ma raison d’être</span>
           <h2 className="mt-5 text-display-sm text-ink-900">
             La performance durable naît d’abord des <Highlight>relations humaines</Highlight>.
           </h2>

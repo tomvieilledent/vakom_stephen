@@ -14,10 +14,7 @@ export function PageHero({ eyebrow, title, description, children }) {
       />
       <div className="container relative py-20 sm:py-28">
         <Reveal className="max-w-3xl">
-          <span className="eyebrow">
-            <span className="h-px w-6 bg-current opacity-60" aria-hidden />
-            {eyebrow}
-          </span>
+          <span className="eyebrow">{eyebrow}</span>
           <h1 className="mt-5 text-display-md text-ink-900">{title}</h1>
           {description && (
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-600">{description}</p>

@@ -26,10 +26,7 @@ export function SectionHeading({
   return (
     <Reveal className={cn('max-w-2xl', align === 'center' && 'mx-auto text-center', className)}>
       {eyebrow && (
-        <span className={cn('eyebrow', tone === 'light' && 'text-brand-300')}>
-          <span className="h-px w-6 bg-current opacity-60" aria-hidden />
-          {eyebrow}
-        </span>
+        <span className={cn('eyebrow', tone === 'light' && 'text-brand-300')}>{eyebrow}</span>
       )}
       <h2 className={cn('mt-4 text-display-sm', tone === 'light' ? 'text-white' : 'text-ink-900')}>
         {title}
