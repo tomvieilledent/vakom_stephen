@@ -21,8 +21,9 @@ export default function Home() {
 
       {/* Expertises */}
       <Section id="expertises" className="bg-sand-100" spacing="lg">
-        <div className="mb-12 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+        <div className="mb-12">
           <SectionHeading
+            align="center"
             eyebrow="Mes expertises"
             title={
               <>
@@ -38,6 +39,7 @@ export default function Home() {
       {/* Méthode */}
       <Section id="methode" spacing="lg">
         <SectionHeading
+          align="center"
           eyebrow="Ma méthode"
           title={
             <>
