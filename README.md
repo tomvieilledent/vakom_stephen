@@ -10,9 +10,8 @@ Création originale — aucun contenu, code ou visuel n'est copié du site Vakom
 
 - **Design** sobre, lumineux et humain — palette encre nuit / crème, accent
   magenta (rappel Vakom), typographie éditoriale (Fraunces + Inter).
-- **9 pages + articles** : Accueil, À propos, Expertises, Méthodologie,
-  Témoignages, Ressources (3 articles complets sous `/ressources/:slug`),
-  Contact, Mentions légales, Politique de confidentialité (+ 404).
+- **6 pages** : Accueil (sections par ancres), À propos, Témoignages, Contact,
+  Mentions légales, Politique de confidentialité (+ 404).
 - **Accessibilité** WCAG AA : navigation clavier, focus visibles, `aria-*`,
   respect de `prefers-reduced-motion`, skip-link, contrastes soignés.
 - **SEO** : meta par page, Open Graph / Twitter (image PNG 1200×630), JSON-LD,
@@ -106,8 +105,7 @@ assets sous ce sous-chemin.
 Tout le contenu éditorial est centralisé :
 
 - `src/config/site.js` — identité, coordonnées, mentions légales.
-- `src/config/content.js` — expertises, méthode, valeurs, témoignages, FAQ,
-  ressources, statistiques.
+- `src/config/content.js` — valeurs, témoignages, statistiques.
 
 Aucune donnée en dur dans les composants : la mise à jour ne demande pas de
 toucher au code des vues.

@@ -71,7 +71,6 @@ const config = {
       fontFamily: {
         display: ['Fraunces', 'Georgia', 'serif'],
         sans: ['Inter', 'system-ui', 'sans-serif'],
-        soft: ['Nunito', 'system-ui', 'sans-serif'],
       },
       fontSize: {
         'display-lg': [

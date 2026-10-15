@@ -25,14 +25,6 @@ export const PAGE_SEO = {
     priority: 0.8,
     changefreq: 'monthly',
   },
-  methodology: {
-    title: 'Méthodologie',
-    description:
-      'Une démarche en quatre temps — écouter, éclairer, co-construire, ancrer — appuyée sur des outils d’évaluation reconnus. Découvrez ma méthode d’accompagnement.',
-    path: '/methodologie',
-    priority: 0.8,
-    changefreq: 'monthly',
-  },
   testimonials: {
     title: 'Témoignages',
     description:
@@ -40,14 +32,6 @@ export const PAGE_SEO = {
     path: '/temoignages',
     priority: 0.7,
     changefreq: 'monthly',
-  },
-  resources: {
-    title: 'Ressources',
-    description:
-      'Articles et réflexions sur le management, le recrutement et la cohésion d’équipe. Des repères concrets pour faire grandir vos équipes.',
-    path: '/ressources',
-    priority: 0.6,
-    changefreq: 'weekly',
   },
   contact: {
     title: 'Contact',

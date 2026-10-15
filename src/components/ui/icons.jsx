@@ -47,16 +47,6 @@ export const IconSparkles = (p) => (
   </svg>
 );
 
-export const IconHandshake = (p) => (
-  <svg {...base} {...p}>
-    <path d="m11 17 2 2a1.5 1.5 0 0 0 2.2-2" />
-    <path d="m14 15.5 1.6 1.6a1.5 1.5 0 0 0 2.2-2L14 11.5" />
-    <path d="M3 11l3-3 4.5 1.5L14 11" />
-    <path d="M21 11l-3-3-3 1" />
-    <path d="M3 11v4l3 3" />
-  </svg>
-);
-
 export const IconGrowth = (p) => (
   <svg {...base} {...p}>
     <path d="M3 20h18" />
@@ -65,12 +55,6 @@ export const IconGrowth = (p) => (
     <path d="M16 20v-8" />
     <path d="M21 20V5" />
     <path d="m14 6 3-3 0 0" />
-  </svg>
-);
-
-export const IconPuzzle = (p) => (
-  <svg {...base} {...p}>
-    <path d="M9 4.5a1.5 1.5 0 0 1 3 0V6h2.5a1 1 0 0 1 1 1v2.5H17a1.5 1.5 0 0 1 0 3h-1.5V16a1 1 0 0 1-1 1H12v1.5a1.5 1.5 0 0 1-3 0V17H6.5a1 1 0 0 1-1-1v-2.5H4a1.5 1.5 0 0 1 0-3h1.5V7a1 1 0 0 1 1-1H9z" />
   </svg>
 );
 
@@ -152,12 +136,5 @@ export const IconClock = (p) => (
   <svg {...base} {...p}>
     <circle cx="12" cy="12" r="9" />
     <path d="M12 7v5l3 2" />
-  </svg>
-);
-
-export const IconShield = (p) => (
-  <svg {...base} {...p}>
-    <path d="M12 3l7 3v6c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6z" />
-    <path d="m9 12 2 2 4-4" />
   </svg>
 );

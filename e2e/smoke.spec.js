@@ -18,8 +18,8 @@ test.describe('Parcours principaux', () => {
   });
 
   test('le pré-rendu SSG expose le bon titre par route', async ({ page }) => {
-    await page.goto('methodologie');
-    await expect(page).toHaveTitle(/Méthodologie/);
+    await page.goto('temoignages');
+    await expect(page).toHaveTitle(/Témoignages/);
   });
 
   test('une URL inconnue affiche la page 404', async ({ page }) => {

@@ -16,7 +16,6 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { PAGE_SEO_LIST } from '../src/config/seo.js';
-import { ARTICLES } from '../src/config/articles.js';
 import { SITE } from '../src/config/site.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -53,13 +52,6 @@ const routes = [
     description: p.description,
     priority: p.priority,
     changefreq: p.changefreq,
-  })),
-  ...ARTICLES.map((a) => ({
-    path: `/ressources/${a.slug}`,
-    title: a.title,
-    description: a.excerpt,
-    priority: 0.5,
-    changefreq: 'yearly',
   })),
 ];
 

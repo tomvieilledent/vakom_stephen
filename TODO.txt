@@ -18,7 +18,7 @@
   - E2E Playwright : 4/4 (accueil, navigation, validation formulaire, SSG, 404). ✅
   - Formulaire de contact : POST vers VITE_CONTACT_ENDPOINT, repli mailto
       automatique si aucune API ne répond (site 100% statique, sans backend).
-  - 9 pages + 404 + 3 pages d'articles, SEO, sitemap, robots.
+  - 6 pages + 404, SEO, sitemap, robots.
   - Icônes complètes : favicon.svg + favicon.ico + apple-touch-icon + PWA 192/512.
   - OG : image raster PNG 1200x630 (+ SVG source), Open Graph + Twitter Card.
   - Extras : /.well-known/security.txt + humans.txt.
@@ -54,9 +54,6 @@ Fichier : src/config/site.js
         -> src/config/content.js (TESTIMONIALS)
   [ ] Statistiques : ajuster les chiffres réels -> content.js (STATS)
   [ ] Parcours (dates/étapes) -> src/pages/About.jsx (JOURNEY)
-  [x] Articles "Ressources" : 3 articles complets rédigés + pages dédiées
-      (/ressources/:slug) fonctionnelles. -> src/config/articles.js
-      [ ] Relire/ajuster le ton et ajouter d'autres articles au fil du temps.
 
 ------------------------------------------------------------------------
 3. VISUELS / SEO
