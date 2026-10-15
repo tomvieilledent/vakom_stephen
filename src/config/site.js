@@ -51,8 +51,5 @@ export const SUBNAV = {
     { label: 'Expertises', id: 'expertises' },
     { label: 'Méthode', id: 'methode' },
   ],
-  '/a-propos': [
-    { label: 'Stephen', id: 'stephen' },
-    { label: 'Vakom Rodez', id: 'vakom-rodez' },
-  ],
+  '/a-propos': [{ label: 'Vakom Rodez', id: 'vakom-rodez' }],
 };

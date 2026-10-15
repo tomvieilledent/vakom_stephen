@@ -5,12 +5,19 @@ Ce fichier alimente le site. Modifiez simplement les textes, enregistrez, et le 
 
 Règles de format (à respecter pour que le site lise bien le fichier) :
 - Les titres `## ...` ne doivent pas être renommés (ce sont les sections).
-- Dans « Stephen » et « Vakom Rodez » : un paragraphe = un bloc de texte, séparé du suivant par une ligne vide.
+- Dans « Consultants » : un bloc `### Prénom` par consultant (ajoutez-en un pour un nouveau recrutement). Sous le titre, les lignes `- Photo` (fichier dans `public/`), `- Rôle`, `- LinkedIn`, `- Titre` (mettez `**…**` autour des mots à colorer), puis les paragraphes.
+- Dans « Vakom Rodez » : un paragraphe = un bloc de texte, séparé du suivant par une ligne vide.
 - Dans « Témoignages » : un bloc `### Prénom N.` par personne. Gardez les 3 lignes qui suivent.
 - Dans « Chiffres » : une ligne par chiffre, au format `- valeur | description`.
 - Pour masquer un témoignage ou un chiffre, supprimez simplement son bloc ou sa ligne.
 
-## Stephen
+## Consultants
+
+### Stephen
+- Photo : stephen.png
+- Rôle : Consultant Vakom
+- LinkedIn : https://www.linkedin.com/in/stephen-keller-56aa90158/
+- Titre : Du management de terrain à l’**accompagnement humain**
 
 Mon parcours a commencé là où tout se joue : sur le terrain, à la tête d’équipes aux personnalités et aux attentes variées. J’y ai appris que les meilleures stratégies ne valent rien sans l’adhésion sincère des personnes qui les portent.
 

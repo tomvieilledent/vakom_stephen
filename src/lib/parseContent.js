@@ -37,6 +37,35 @@ function field(lines, label) {
   return '';
 }
 
+function consultants(lines = []) {
+  const items = [];
+  let name = null;
+  let block = [];
+  const flush = () => {
+    if (name === null) return;
+    items.push({
+      firstName: name,
+      photo: field(block, 'Photo'),
+      role: field(block, 'Rôle'),
+      linkedin: field(block, 'LinkedIn'),
+      title: field(block, 'Titre'),
+      paragraphs: paragraphs(block.filter((l) => !/^-\s*[^:]+:/.test(l.trim()))),
+    });
+  };
+  for (const line of lines) {
+    const h = line.match(/^###\s+(.+?)\s*$/);
+    if (h) {
+      flush();
+      name = h[1].trim();
+      block = [];
+    } else {
+      block.push(line);
+    }
+  }
+  flush();
+  return items;
+}
+
 function testimonials(lines = []) {
   const items = [];
   let author = null;
@@ -77,7 +106,7 @@ function stats(lines = []) {
 export function parseContent(md) {
   const s = splitSections(md);
   return {
-    stephen: paragraphs(s['Stephen']),
+    consultants: consultants(s['Consultants']),
     vakomRodez: paragraphs(s['Vakom Rodez']),
     testimonials: testimonials(s['Témoignages']),
     stats: stats(s['Chiffres']),

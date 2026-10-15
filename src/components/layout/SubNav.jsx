@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { SUBNAV } from '@/config/site';
+import { CONSULTANTS } from '@/config/content';
+import { consultantId } from '@/lib/consultant';
 import { cn } from '@/lib/cn';
 
 /**
@@ -10,7 +12,14 @@ import { cn } from '@/lib/cn';
  */
 export function SubNav() {
   const { pathname } = useLocation();
-  const items = SUBNAV[pathname];
+  // Sur « À propos », un lien par consultant précède les ancres fixes.
+  const items =
+    pathname === '/a-propos'
+      ? [
+          ...CONSULTANTS.map((c) => ({ label: c.firstName, id: consultantId(c) })),
+          ...SUBNAV[pathname],
+        ]
+      : SUBNAV[pathname];
   const [active, setActive] = useState(null);
 
   // Repère la section présente au centre de l'écran.

@@ -5,7 +5,7 @@ import contenuMd from '../../content/contenu.md?raw';
 
 // Textes éditables à la main dans content/contenu.md
 const CONTENT = parseContent(contenuMd);
-export const STEPHEN_PARAGRAPHS = CONTENT.stephen;
+export const CONSULTANTS = CONTENT.consultants;
 export const VAKOM_RODEZ_PARAGRAPHS = CONTENT.vakomRodez;
 export const TESTIMONIALS = CONTENT.testimonials;
 export const STATS = CONTENT.stats;
