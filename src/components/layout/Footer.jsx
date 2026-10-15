@@ -45,7 +45,7 @@ export function Footer() {
           </div>
 
           <nav aria-label="Navigation de pied de page">
-            <h2 className="text-xs font-semibold uppercase tracking-[0.16em] text-ink-400">
+            <h2 className="text-xs font-semibold uppercase tracking-[0.16em] text-ink-300">
               Navigation
             </h2>
             <ul className="mt-4 space-y-3 text-sm">
@@ -71,7 +71,7 @@ export function Footer() {
           </nav>
 
           <div>
-            <h2 className="text-xs font-semibold uppercase tracking-[0.16em] text-ink-400">
+            <h2 className="text-xs font-semibold uppercase tracking-[0.16em] text-ink-300">
               Contact
             </h2>
             <ul className="mt-4 space-y-3 text-sm">
@@ -92,7 +92,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-4 border-t border-ink-800 pt-6 text-xs text-ink-400 md:flex-row md:items-center md:justify-between">
+        <div className="mt-14 flex flex-col gap-4 border-t border-ink-800 pt-6 text-xs text-ink-300 md:flex-row md:items-center md:justify-between">
           <p>
             © {year} {SITE.consultant.firstName} · {SITE.consultant.network}. Marque Vakom citée
             avec l’aimable autorisation du réseau.
