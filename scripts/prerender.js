@@ -22,7 +22,7 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = resolve(root, 'dist');
 const template = readFileSync(resolve(dist, 'index.html'), 'utf-8');
 
-const fullTitle = (title) => `${title} · ${SITE.consultant.firstName} — Consultant Vakom`;
+const fullTitle = (title) => `${title} · Vakom Rodez`;
 
 function escapeAttr(value) {
   return value.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');

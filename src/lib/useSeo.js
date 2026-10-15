@@ -28,7 +28,7 @@ function setCanonical(href) {
  */
 export function useSeo({ title, description, path = '' }) {
   useEffect(() => {
-    const fullTitle = `${title} · ${SITE.consultant.firstName} — Consultant Vakom`;
+    const fullTitle = `${title} · Vakom Rodez`;
     const url = `${SITE.url}${path}`;
 
     document.title = fullTitle;

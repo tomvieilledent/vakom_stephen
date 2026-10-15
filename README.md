@@ -1,4 +1,4 @@
-# Stephen — Site personnel · Consultant au sein du réseau Vakom
+# Vakom Rodez — Site vitrine · Réseau Vakom
 
 Site vitrine premium d'un consultant en performance humaine, cohérent avec
 l'univers Vakom (« le sens de l'Humain ») tout en affirmant une identité propre.
