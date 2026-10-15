@@ -1,4 +1,5 @@
 import { Highlight } from '@/components/ui/Highlight';
+import { VAKOM_RODEZ_PARAGRAPHS } from '@/config/content';
 import { Section, SectionHeading } from '@/components/ui/Section';
 import { Reveal } from '@/components/ui/Reveal';
 import { Button } from '@/components/ui/Button';
@@ -21,17 +22,9 @@ export function AboutVakomRodez() {
             }
           />
           <div className="prose-clean mt-6 max-w-xl text-ink-600">
-            <p>
-              Vakom est un réseau de cabinets de conseil en ressources et relations humaines,
-              présent partout en France. Ses méthodes et ses outils d’évaluation, éprouvés depuis
-              plus de 35 ans, aident dirigeants, managers et équipes à mieux se comprendre pour
-              mieux travailler ensemble.
-            </p>
-            <p>
-              À Rodez, Vakom accompagne les entreprises et les personnes du territoire : conseil,
-              formation, coaching, recrutement et évaluation, orientation professionnelle et
-              conférences.
-            </p>
+            {VAKOM_RODEZ_PARAGRAPHS.map((text) => (
+              <p key={text}>{text}</p>
+            ))}
           </div>
           <Button
             href="https://vakom.fr"

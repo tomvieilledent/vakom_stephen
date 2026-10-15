@@ -4,6 +4,7 @@ import { Reveal } from '@/components/ui/Reveal';
 import { Button } from '@/components/ui/Button';
 import { IconArrowRight, IconLinkedin } from '@/components/ui/icons';
 import { ValuesGrid } from '@/components/sections/ValuesGrid';
+import { STEPHEN_PARAGRAPHS } from '@/config/content';
 import { SITE } from '@/config/site';
 
 /** Présentation du consultant : portrait + parcours. */
@@ -39,21 +40,9 @@ export function AboutConsultant() {
               }
             />
             <div className="prose-clean mt-6 max-w-xl text-ink-600">
-              <p>
-                Mon parcours a commencé là où tout se joue : sur le terrain, à la tête d’équipes aux
-                personnalités et aux attentes variées. J’y ai appris que les meilleures stratégies
-                ne valent rien sans l’adhésion sincère des personnes qui les portent.
-              </p>
-              <p>
-                Cette conviction m’a naturellement conduit vers l’accompagnement humain.
-                Aujourd’hui, en tant que consultant au sein du réseau Vakom, je mets une méthode
-                reconnue et des outils d’évaluation éprouvés au service d’un accompagnement
-                profondément personnalisé.
-              </p>
-              <p>
-                Ma promesse est simple : vous apporter un regard lucide et bienveillant, et vous
-                aider à passer du constat à l’action, durablement.
-              </p>
+              {STEPHEN_PARAGRAPHS.map((text) => (
+                <p key={text}>{text}</p>
+              ))}
             </div>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Button to="/contact" variant="primary">
