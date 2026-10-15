@@ -38,7 +38,6 @@ export default function Home() {
       {/* Méthode */}
       <Section id="methode" spacing="lg">
         <SectionHeading
-          align="center"
           eyebrow="Ma méthode"
           title={
             <>
