@@ -31,7 +31,7 @@ export function CtaBand({
               href={`mailto:${SITE.contact.email}`}
               size="lg"
               variant="ghost"
-              className="text-white ring-ink-700 hover:bg-white hover:text-ink-900"
+              className="text-white ring-ink-700 hover:!bg-white hover:!text-ink-900"
             >
               {SITE.contact.email}
             </Button>
