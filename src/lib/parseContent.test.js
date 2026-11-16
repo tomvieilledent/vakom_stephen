@@ -37,6 +37,7 @@ describe('parseContent', () => {
       '### Ana B.',
       '- Fonction : DG',
       '- Entreprise : ACME',
+      '- Note : 4,5',
       '- Citation : Super.',
       '## Chiffres',
       '- 10 ans | d’expérience',
@@ -54,7 +55,7 @@ describe('parseContent', () => {
       { firstName: 'Bob', photo: '', role: '', linkedin: '', title: '', paragraphs: ['Trois.'] },
     ]);
     expect(c.testimonials).toEqual([
-      { quote: 'Super.', author: 'Ana B.', role: 'DG', company: 'ACME' },
+      { quote: 'Super.', author: 'Ana B.', role: 'DG', company: 'ACME', rating: 4.5 },
     ]);
     expect(c.stats).toEqual([{ value: '10 ans', label: 'd’expérience' }]);
   });

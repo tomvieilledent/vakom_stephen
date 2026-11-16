@@ -7,7 +7,7 @@ Règles de format (à respecter pour que le site lise bien le fichier) :
 - Les titres `## ...` ne doivent pas être renommés (ce sont les sections).
 - Dans « Consultants » : un bloc `### Prénom` par consultant (ajoutez-en un pour un nouveau recrutement). Sous le titre, les lignes `- Photo` (fichier dans `public/`), `- Rôle`, `- LinkedIn`, `- Titre` (mettez `**…**` autour des mots à colorer), puis les paragraphes.
 - Dans « Vakom Rodez » : un paragraphe = un bloc de texte, séparé du suivant par une ligne vide.
-- Dans « Témoignages » : un bloc `### Prénom N.` par personne. Gardez les 3 lignes qui suivent.
+- Dans « Témoignages » : un bloc `### Prénom N.` par personne. Gardez les lignes qui suivent (`Note` = nombre d’étoiles sur 5, ex. 4,5).
 - Dans « Chiffres » : une ligne par chiffre, au format `- valeur | description`.
 - Pour masquer un témoignage ou un chiffre, supprimez simplement son bloc ou sa ligne.
 
@@ -33,27 +33,25 @@ Vakom est un réseau de cabinets de conseil en ressources et relations humaines,
 
 ## Témoignages
 
-> ⚠️ Les témoignages ci-dessous sont des EXEMPLES. Remplacez-les par de vrais retours clients (avec leur accord) avant la mise en ligne.
+### Arnaud
+- Fonction : Directeur de magasin Decathlon
+- Note : 5
+- Citation : Excellent accompagnement de la part de Stephen, explique clairement toutes les étapes de la méthode OPR, dans l'écoute également. J'ai apprécié le temps de la restitution des résultats avec beaucoup de précisions et d'exemples pour bien les assimiler. Je recommande VIVEMENT.
 
-### Claire M.
-- Fonction : Directrice générale
-- Entreprise : PME industrielle · 140 collaborateurs
-- Citation : Stephen a cette capacité rare à mettre des mots justes sur des situations complexes. Notre comité de direction n’a jamais été aussi aligné.
+### Nicolas
+- Fonction : Dirigeant associé, expert-comptable
+- Note : 5
+- Citation : Expérience très enrichissante ! Permet une belle prise de recul
 
-### Julien R.
-- Fonction : DRH
-- Entreprise : Groupe de services
-- Citation : Un accompagnement humain et exigeant à la fois. Mes managers ont gagné en confiance et en cohérence en quelques mois.
+### Aurélie
+- Fonction : Cadre
+- Note : 5
+- Citation : J'ai eu l'opportunité de réaliser un bilan OPR avec Stephen. Son analyse est particulièrement fine et pertinente ! Merci pour la qualité de cet échange !
 
-### Sophie D.
-- Fonction : Dirigeante
-- Entreprise : Cabinet de conseil
-- Citation : Grâce à son regard, nous avons recruté la bonne personne, pour les bonnes raisons. Un an après, le pari est gagné.
-
-### Marc L.
-- Fonction : Responsable d’exploitation
-- Entreprise : Réseau de distribution
-- Citation : Il ne plaque pas de méthode toute faite : il part de nous. C’est ce qui a rendu la démarche crédible auprès des équipes.
+### Laurent
+- Fonction : Entreprise de communication
+- Note : 5
+- Citation : J'ai eu l'occasion de découvrir la méthode OPR lors d'un accompagnement avec Stephen. Une expérience intéressante et enrichissante, qui permet de prendre du recul sur soi et de mieux comprendre certains aspects de son fonctionnement. Stephen prend le temps d'expliquer les résultats avec clarté et bienveillance, ce qui rend les échanges agréables et constructifs. Merci pour cette découverte !
 
 ## Chiffres
 
@@ -62,4 +60,4 @@ Vakom est un réseau de cabinets de conseil en ressources et relations humaines,
 - 15 ans | au service des organisations
 - +120 | dirigeants & managers accompagnés
 - 30+ | entreprises partenaires
-- 94 % | de recommandation
+- 5/5 (17) | sur Google

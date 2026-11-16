@@ -38,12 +38,8 @@ export default function Testimonials() {
         description="La meilleure preuve de la valeur d’un accompagnement, ce sont les personnes qui l’ont vécu. Voici quelques-uns de leurs retours."
       />
 
-      <Section spacing="lg">
-        <TestimonialGrid />
-      </Section>
-
       {/* Résultats */}
-      <Section className="bg-sand-100" spacing="lg">
+      <Section id="resultats" className="bg-sand-100" spacing="lg">
         <SectionHeading
           eyebrow="Quelques résultats"
           title={
@@ -68,7 +64,11 @@ export default function Testimonials() {
         </div>
       </Section>
 
-      <section className="bg-ink-950 py-20 sm:py-24">
+      <Section id="avis" spacing="lg">
+        <TestimonialGrid />
+      </Section>
+
+      <section id="chiffres" className="bg-ink-950 py-20 sm:py-24">
         <div className="container">
           <StatsRow tone="light" />
         </div>

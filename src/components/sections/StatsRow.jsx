@@ -1,6 +1,13 @@
 import { STATS } from '@/config/content';
 import { Reveal } from '@/components/ui/Reveal';
+import { Stars } from '@/components/ui/Stars';
 import { cn } from '@/lib/cn';
+
+/** « 4,5/5 (17) » → { rating: 4.5, count: '17' } ; sinon null. */
+function parseRating(value) {
+  const m = value.match(/^(\d+(?:[.,]\d+)?)\s*\/\s*5(?:\s*\((\d+)\))?$/);
+  return m ? { rating: Number(m[1].replace(',', '.')), count: m[2] } : null;
+}
 
 export function StatsRow({ tone = 'dark' }) {
   return (
@@ -13,7 +20,17 @@ export function StatsRow({ tone = 'dark' }) {
               tone === 'light' ? 'text-white' : 'text-ink-900',
             )}
           >
-            {stat.value}
+            {(() => {
+              const r = parseRating(stat.value);
+              return r ? (
+                <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                  <Stars rating={r.rating} className="h-6 w-6 sm:h-7 sm:w-7" />
+                  {r.count && <span className="font-sans text-sm font-medium">{r.count} avis</span>}
+                </span>
+              ) : (
+                stat.value
+              );
+            })()}
           </dt>
           <dd
             className={cn(

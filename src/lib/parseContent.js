@@ -79,6 +79,7 @@ function testimonials(lines = []) {
         author,
         role: field(block, 'Fonction'),
         company: field(block, 'Entreprise'),
+        rating: Number(field(block, 'Note').replace(',', '.')) || 0,
       });
     }
   };
