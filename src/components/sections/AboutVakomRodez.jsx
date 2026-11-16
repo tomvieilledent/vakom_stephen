@@ -2,8 +2,6 @@ import { Highlight } from '@/components/ui/Highlight';
 import { VAKOM_RODEZ_PARAGRAPHS } from '@/config/content';
 import { Section, SectionHeading } from '@/components/ui/Section';
 import { Reveal } from '@/components/ui/Reveal';
-import { Button } from '@/components/ui/Button';
-import { IconArrowUpRight } from '@/components/ui/icons';
 
 const BASE = import.meta.env.BASE_URL;
 
@@ -26,22 +24,12 @@ export function AboutVakomRodez() {
               <p key={text}>{text}</p>
             ))}
           </div>
-          <Button
-            href="https://vakom.fr"
-            target="_blank"
-            rel="noopener noreferrer"
-            variant="secondary"
-            className="mt-8"
-          >
-            Découvrir Vakom
-            <IconArrowUpRight className="h-4 w-4" />
-          </Button>
         </div>
 
         <Reveal>
           <img
-            src={`${BASE}rodez.jpg`}
-            alt="Vue de Rodez"
+            src={`${BASE}hero.jpg`}
+            alt="Trois randonneurs face au lever du soleil au-dessus des nuages"
             loading="lazy"
             decoding="async"
             className="aspect-[4/5] w-full rounded-5xl object-cover shadow-lift"

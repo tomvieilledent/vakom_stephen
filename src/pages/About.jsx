@@ -14,8 +14,8 @@ export default function About() {
       {CONSULTANTS.map((consultant, i) => (
         <AboutConsultant key={consultant.firstName} consultant={consultant} reverse={i % 2 === 1} />
       ))}
-      <AboutValues />
       <AboutVakomRodez />
+      <AboutValues />
     </>
   );
 }

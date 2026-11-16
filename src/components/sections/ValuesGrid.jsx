@@ -1,20 +1,24 @@
 import { VALUES } from '@/config/content';
 import { Reveal } from '@/components/ui/Reveal';
 
+/** Liste éditoriale des valeurs : l'initiale de chaque valeur est mise en avant (APPARES). */
 export function ValuesGrid() {
   return (
-    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    <ol className="divide-y divide-ink-100 border-y border-ink-100">
       {VALUES.map((value, i) => (
-        <Reveal as="div" key={value.title} delay={i * 0.08} className="h-full">
-          <div className="flex h-full flex-col rounded-4xl border border-ink-800 bg-ink-900 p-7">
-            <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-500/15 font-display text-2xl text-brand-300">
+        <Reveal as="li" key={value.title} delay={i * 0.04}>
+          <div className="grid grid-cols-[2.5rem_1fr] items-center gap-x-5 gap-y-1 py-3 sm:grid-cols-[3rem_13rem_1fr] sm:gap-x-6 sm:py-2.5">
+            <span
+              aria-hidden
+              className="row-span-2 font-display text-4xl font-bold leading-none text-brand-500 sm:row-span-1 sm:text-5xl"
+            >
               {value.letter}
             </span>
-            <h3 className="mt-5 font-display text-xl text-white">{value.title}</h3>
-            <p className="mt-3 text-sm leading-relaxed text-ink-300">{value.description}</p>
+            <h3 className="font-display text-xl text-ink-900">{value.title}</h3>
+            <p className="text-sm leading-snug text-ink-600">{value.description}</p>
           </div>
         </Reveal>
       ))}
-    </div>
+    </ol>
   );
 }

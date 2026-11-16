@@ -10,29 +10,46 @@ export const VAKOM_RODEZ_PARAGRAPHS = CONTENT.vakomRodez;
 export const TESTIMONIALS = CONTENT.testimonials;
 export const STATS = CONTENT.stats;
 
+/** Valeurs Vakom : leurs initiales forment le mot « APPARES ». */
 export const VALUES = [
   {
-    letter: 'H',
-    title: 'Humanité',
+    letter: 'A',
+    title: 'Audace',
     description:
-      'Placer la personne avant la fonction. Chaque accompagnement part d’un respect sincère de ce que chacun est.',
+      'Sortir de sa zone de confort pour innover, entreprendre et s’engager avec optimisme.',
   },
   {
-    letter: 'L',
-    title: 'Lucidité',
+    letter: 'P',
+    title: 'Plaisir',
     description:
-      'Dire les choses avec justesse et bienveillance, même lorsqu’elles dérangent, pour permettre d’avancer.',
+      'Garder l’envie d’entreprendre, la curiosité, la joie de vivre et le désir de grandir.',
+  },
+  {
+    letter: 'P',
+    title: 'Professionnalisme',
+    description: 'Viser l’efficacité, individuelle et collective, dans une performance durable.',
+  },
+  {
+    letter: 'A',
+    title: 'Agilité',
+    description:
+      'S’adapter à son environnement grâce à la proximité, la flexibilité, l’humanité et la simplicité.',
+  },
+  {
+    letter: 'R',
+    title: 'Respect',
+    description: 'Être lucide sur soi-même pour renforcer la confiance collective.',
   },
   {
     letter: 'E',
-    title: 'Engagement',
+    title: 'Esprit d’équipe',
     description:
-      'M’impliquer pleinement dans vos réussites, avec la même exigence que si votre organisation était la mienne.',
+      'Cultiver les différences avec bienveillance pour valoriser la cohésion, avec équité.',
   },
   {
     letter: 'S',
     title: 'Simplicité',
     description:
-      'Rendre accessible ce qui est complexe. Des mots clairs, des outils concrets, des résultats mesurables.',
+      'Être simple dans les relations, les prestations et l’organisation, pour être accessible à tous.',
   },
 ];

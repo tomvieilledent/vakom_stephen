@@ -3,6 +3,7 @@ import { Section, SectionHeading } from '@/components/ui/Section';
 import { Reveal } from '@/components/ui/Reveal';
 import { Button } from '@/components/ui/Button';
 import { IconArrowRight, IconLinkedin } from '@/components/ui/icons';
+import { Parcours } from '@/components/sections/Parcours';
 import { ValuesGrid } from '@/components/sections/ValuesGrid';
 import { consultantId } from '@/lib/consultant';
 import { SITE } from '@/config/site';
@@ -70,27 +71,34 @@ export function AboutConsultant({ consultant, reverse = false }) {
           </div>
         </div>
       </div>
+      <Parcours firstName={firstName} />
     </Section>
   );
 }
 
-/** Valeurs communes — section sombre. */
+/** Valeurs Vakom (APPARES) — section sombre. */
 export function AboutValues() {
   return (
-    <section className="bg-ink-950 py-14 sm:py-20">
-      <div className="container">
-        <SectionHeading
-          align="center"
-          tone="light"
-          eyebrow="Nos valeurs"
-          title={
-            <>
-              Ce qui <Highlight tone="light">guide</Highlight> chacune de nos interventions
-            </>
-          }
-          description="Quatre convictions qui font la cohérence de notre accompagnement, dans le droit fil des valeurs Vakom."
-          className="mb-12"
-        />
+    <section className="overflow-hidden py-10 sm:py-14">
+      <div className="container grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:gap-12">
+        <Reveal className="lg:sticky lg:top-28 lg:self-start">
+          <span className="eyebrow">Nos valeurs</span>
+          <h2 className="mt-3 font-display text-2xl text-ink-900 sm:text-3xl">
+            Vakom, des valeurs
+          </h2>
+          <p
+            aria-label="APPARES"
+            className="mt-1 bg-gradient-to-r from-brand-500 via-brand-500 to-brand-700 bg-clip-text font-display text-5xl font-bold leading-none tracking-tight text-transparent sm:text-6xl lg:text-7xl"
+          >
+            APPARES
+          </p>
+          <p className="mt-4 max-w-md text-sm leading-relaxed text-ink-600">
+            Un mot voulu, pas une faute de frappe. Ses sept lettres sont les initiales de nos
+            valeurs, et elles doivent se voir : des valeurs qui apparaissent dans la manière dont on
+            travaille ensemble.
+          </p>
+        </Reveal>
+
         <ValuesGrid />
       </div>
     </section>
