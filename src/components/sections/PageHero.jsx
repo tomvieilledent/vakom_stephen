@@ -6,10 +6,6 @@ export function PageHero({ eyebrow, title, description, children }) {
     <section className="relative overflow-hidden border-b border-ink-100 bg-sand-100">
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.5] [background-image:theme(backgroundImage.grid-ink)] [background-size:44px_44px]"
-      />
-      <div
-        aria-hidden
         className="pointer-events-none absolute -right-20 top-0 h-72 w-72 rounded-full bg-brand-200/30 blur-3xl"
       />
       <div className="container relative py-20 sm:py-28">

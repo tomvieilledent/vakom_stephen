@@ -56,9 +56,9 @@ const config = {
         },
         // Base lumineuse
         sand: {
-          50: '#fdfbf9',
-          100: '#faf6f1',
-          200: '#f3ebe1',
+          50: '#f7f0e6',
+          100: '#f7f0e6',
+          200: '#ebdfce',
           300: '#e8dccd',
           400: '#d8c6b0',
         },

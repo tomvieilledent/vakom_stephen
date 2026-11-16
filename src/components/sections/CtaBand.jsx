@@ -9,7 +9,7 @@ export function CtaBand({
 }) {
   return (
     <div className="container">
-      <Reveal className="relative overflow-hidden rounded-5xl bg-ink-900 px-7 py-14 sm:px-14 sm:py-20">
+      <Reveal className="relative overflow-hidden rounded-5xl bg-ink-950 px-7 py-14 sm:px-14 sm:py-20">
         {/* Halo décoratif */}
         <div
           aria-hidden
