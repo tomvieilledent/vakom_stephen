@@ -6,10 +6,10 @@ const BASE = import.meta.env.BASE_URL;
 
 const SOLUTIONS = [
   {
-    logo: 'evt.jpg',
-    alt: 'Envol des talents',
-    text: 'Identification des capacités, des aptitudes et de leur utilisation. Compréhension des attitudes à avoir pour en faire un ou des talents.',
-    href: 'https://content.vakom.fr/landing-envol-des-talents',
+    logo: 'opr.jpg',
+    alt: 'Optimisation du potentiel relationnel',
+    text: 'Démarche de management, de vente, de gestion des ressources humaines et de relation interpersonnelle par les comportements.',
+    href: 'http://content.vakom.fr/landing-methode-opr',
   },
   {
     logo: 'mde.jpg',
@@ -18,34 +18,10 @@ const SOLUTIONS = [
     href: 'http://content.vakom.fr/landing-carte-de-l-implication',
   },
   {
-    logo: 'opr.jpg',
-    alt: 'Optimisation du potentiel relationnel',
-    text: 'Démarche de management, de vente, de gestion des ressources humaines et de relation interpersonnelle par les comportements.',
-    href: 'http://content.vakom.fr/landing-methode-opr',
-  },
-  {
-    logo: 'bpm.jpg',
-    alt: 'Baromètre des postures managériales',
-    text: 'Analyse de vos compétences managériales par un feedback de vos collaborateurs et de votre hiérarchie.',
-    href: 'https://content.vakom.fr/landing-bpm',
-  },
-  {
-    logo: 'bprh.jpg',
-    alt: 'Baromètre performance RH',
-    text: 'État des lieux de l’entreprise et de ses pratiques RH en lien avec ses orientations stratégiques.',
-    href: 'http://content.vakom.fr/landing-bprh',
-  },
-  {
-    logo: 'hope.jpg',
-    alt: 'HOPE',
-    text: 'Évaluation du potentiel humain et organisationnel de votre entreprise, ses chances et ses risques pour en tirer un plan d’action vers le succès.',
-    href: 'https://vakom.fr/hope/',
-  },
-  {
-    logo: 'me.jpg',
-    alt: 'Diagnostic marque employeur',
-    text: 'Estimation de votre attractivité par secteurs et des chantiers d’amélioration prioritaires.',
-    href: 'https://content.vakom.fr/lb-marque-employeur',
+    logo: 'evt.jpg',
+    alt: 'Envol des talents',
+    text: 'Identification des capacités, des aptitudes et de leur utilisation. Compréhension des attitudes à avoir pour en faire un ou des talents.',
+    href: 'https://content.vakom.fr/landing-envol-des-talents',
   },
   {
     logo: 'pm3.jpg',
@@ -54,10 +30,34 @@ const SOLUTIONS = [
     href: 'https://vakom.fr/formation/profession-manager-3-0/',
   },
   {
+    logo: 'bprh.jpg',
+    alt: 'Baromètre performance RH',
+    text: 'État des lieux de l’entreprise et de ses pratiques RH en lien avec ses orientations stratégiques.',
+    href: 'http://content.vakom.fr/landing-bprh',
+  },
+  {
+    logo: 'bpm.jpg',
+    alt: 'Baromètre des postures managériales',
+    text: 'Analyse de vos compétences managériales par un feedback de vos collaborateurs et de votre hiérarchie.',
+    href: 'https://content.vakom.fr/landing-bpm',
+  },
+  {
+    logo: 'hope.jpg',
+    alt: 'HOPE',
+    text: 'Évaluation du potentiel humain et organisationnel de votre entreprise, ses chances et ses risques pour en tirer un plan d’action vers le succès.',
+    href: 'https://vakom.fr/hope/',
+  },
+  {
     logo: 'collab.jpg',
     alt: 'Collabor’acteur',
     text: 'Formation à distance personnalisée autour du rôle de collaborateur/acteur. Suivi individuel et en groupe par un tuteur.',
     href: 'https://vakom.fr/formation/collaborateurs-4-0/',
+  },
+  {
+    logo: 'me.jpg',
+    alt: 'Diagnostic marque employeur',
+    text: 'Estimation de votre attractivité par secteurs et des chantiers d’amélioration prioritaires.',
+    href: 'https://content.vakom.fr/lb-marque-employeur',
   },
 ];
 
@@ -72,7 +72,7 @@ export function MethodSolutions() {
           <Reveal as="div" key={s.logo} delay={(i % 3) * 0.07} className="h-full">
             <Tag
               {...link}
-              className="group relative flex h-full flex-col justify-between gap-3 rounded-2xl border border-ink-200 bg-white p-5 sm:gap-4 sm:p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-300 hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
+              className="group relative flex h-full flex-col justify-between gap-3 rounded-2xl border border-ink-100 bg-white p-5 sm:gap-4 sm:p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-300 hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
             >
               <div className="flex flex-1 items-center">
                 <div className="w-full">
