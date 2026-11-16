@@ -7,8 +7,11 @@ import { RaisonDEtre } from '@/components/sections/RaisonDEtre';
 import { HomeHero } from '@/components/sections/HomeHero';
 import { ExpertiseBubbles } from '@/components/sections/ExpertiseBubbles';
 import { MethodSolutions } from '@/components/sections/MethodSolutions';
+import { FloatingContact } from '@/components/sections/FloatingContact';
 import { CtaBand } from '@/components/sections/CtaBand';
 import { IconArrowRight } from '@/components/ui/icons';
+
+const CONTACT_HIDDEN_BY = ['hero', 'contact-cta'];
 
 export default function Home() {
   useSeo(PAGE_SEO.home);
@@ -16,6 +19,7 @@ export default function Home() {
   return (
     <>
       <HomeHero />
+      <FloatingContact from="raison-etre" to="methode" hideWhenVisible={CONTACT_HIDDEN_BY} />
 
       <RaisonDEtre />
 
@@ -27,7 +31,7 @@ export default function Home() {
             eyebrow="Mes expertises"
             title={
               <>
-                Six domaines d’<Highlight>accompagnement</Highlight>
+                Six domaines d’<Highlight>interventions</Highlight>
               </>
             }
             description="Du dirigeant au collaborateur, j’interviens sur l’ensemble du cycle de vie humain de votre organisation."
@@ -52,7 +56,7 @@ export default function Home() {
         <MethodSolutions />
       </Section>
 
-      <div className="pb-14 sm:pb-20">
+      <div id="contact-cta" className="pb-14 sm:pb-20">
         <CtaBand />
       </div>
     </>
