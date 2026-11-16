@@ -21,9 +21,10 @@ export const SITE = {
   },
   contact: {
     email: 'contact@stephen-consultant.fr',
-    phone: '+33 6 00 00 00 00',
-    phoneHref: 'tel:+33600000000',
+    phone: '+33 7 87 12 90 54',
+    phoneHref: 'tel:+33787129054',
     linkedin: 'https://www.linkedin.com/in/stephen-keller-56aa90158/',
+    googleReviewsUrl: 'https://share.google/vAQQjI4gV5lx9ljH9',
     calendarUrl: '', // lien de prise de RDV (Calendly, etc.) — optionnel
   },
   legal: {
@@ -52,4 +53,8 @@ export const SUBNAV = {
     { label: 'Méthode', id: 'methode' },
   ],
   '/a-propos': [{ label: 'Vakom Rodez', id: 'vakom-rodez' }],
+  '/temoignages': [
+    { label: 'Résultats', id: 'resultats' },
+    { label: 'Avis clients', id: 'avis' },
+  ],
 };
