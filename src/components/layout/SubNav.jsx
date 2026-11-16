@@ -22,21 +22,33 @@ export function SubNav() {
       : SUBNAV[pathname];
   const [active, setActive] = useState(null);
 
-  // Repère la section présente au centre de l'écran.
+  // Repère la section en cours : la dernière dont le haut a dépassé 40 % de la
+  // hauteur de l'écran (elle reste active jusqu'en bas de page).
   useEffect(() => {
     setActive(null);
-    if (!items || typeof IntersectionObserver === 'undefined') return undefined;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const e of entries) if (e.isIntersecting) setActive(e.target.id);
-      },
-      { rootMargin: '-35% 0px -60% 0px' },
-    );
-    for (const { id } of items) {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    }
-    return () => observer.disconnect();
+    if (!items) return undefined;
+    const update = () => {
+      const line = window.innerHeight * 0.4;
+      let current = null;
+      for (const { id } of items) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        const r = el.getBoundingClientRect();
+        if (r.top <= line) current = id;
+      }
+      setActive(current);
+    };
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    // Pages chargées à la demande : on recalcule quand le contenu change de taille.
+    const observer = typeof ResizeObserver !== 'undefined' ? new ResizeObserver(update) : null;
+    observer?.observe(document.body);
+    return () => {
+      observer?.disconnect();
+      window.removeEventListener('scroll', update);
+      window.removeEventListener('resize', update);
+    };
   }, [items]);
 
   if (!items) return null;
