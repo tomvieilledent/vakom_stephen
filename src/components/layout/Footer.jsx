@@ -1,7 +1,13 @@
 import { Link } from 'react-router-dom';
 import { NAV_LINKS, SITE } from '@/config/site';
 import { Logo } from '@/components/Logo';
-import { IconArrowUpRight, IconLinkedin, IconMail, IconMapPin } from '@/components/ui/icons';
+import {
+  IconArrowUpRight,
+  IconLinkedin,
+  IconMail,
+  IconMapPin,
+  IconPhone,
+} from '@/components/ui/icons';
 import { isAnalyticsConfigured, openConsentBanner, resetConsent } from '@/lib/analytics';
 
 const LEGAL_LINKS = [
@@ -82,6 +88,15 @@ export function Footer() {
                 >
                   <IconMail className="h-4 w-4 text-brand-400" />
                   {SITE.contact.email}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={SITE.contact.phoneHref}
+                  className="inline-flex items-center gap-2 text-ink-200 transition-colors hover:text-white"
+                >
+                  <IconPhone className="h-4 w-4 text-brand-400" />
+                  {SITE.contact.phone}
                 </a>
               </li>
               <li className="inline-flex items-center gap-2 text-ink-200">
