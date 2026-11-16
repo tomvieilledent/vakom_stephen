@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
-import { IconArrowRight, IconMapPin } from '@/components/ui/icons';
+import { IconArrowRight } from '@/components/ui/icons';
 
 const BASE = import.meta.env.BASE_URL;
 
@@ -11,16 +11,13 @@ const BASE = import.meta.env.BASE_URL;
 export function HomeHero() {
   return (
     <section
-      className="relative isolate min-h-[34rem] overflow-hidden bg-ink-900 bg-cover bg-center lg:min-h-[40rem]"
-      style={{ backgroundImage: `url(${BASE}rodez.jpg)` }}
+      id="hero"
+      className="relative isolate min-h-[34rem] overflow-hidden bg-ink-950 bg-cover bg-center lg:min-h-[40rem]"
+      style={{ backgroundImage: `url(${BASE}hero.jpg)` }}
     >
       <div
         aria-hidden
-        className="absolute inset-0 bg-gradient-to-br from-brand-600/90 to-brand-500/80 lg:hidden"
-      />
-      <div
-        aria-hidden
-        className="absolute right-[42%] top-1/2 hidden aspect-square h-[220%] -translate-y-1/2 rounded-full bg-gradient-to-r from-brand-600/90 to-brand-500/80 lg:block"
+        className="absolute right-[5%] top-1/2 aspect-square h-[260%] -translate-y-1/2 rounded-full bg-gradient-to-r from-brand-600/90 to-brand-500/80 lg:right-[42%] lg:h-[220%]"
       />
       <div className="container relative flex min-h-[34rem] items-center py-16 lg:min-h-[40rem]">
         <motion.div
@@ -38,10 +35,6 @@ export function HomeHero() {
           />
           <h1 className="mt-10 font-display text-white text-3xl font-bold uppercase [text-shadow:0_2px_12px_rgb(0_0_0/0.25)] leading-tight sm:text-4xl lg:text-5xl">
             Votre partenaire en ressources &amp; relations humaines
-            <span className="mt-4 flex w-fit items-center gap-2 rounded-full border border-white/50 bg-white/15 px-4 py-1 backdrop-blur-sm [text-shadow:none] sm:text-3xl lg:text-4xl">
-              <IconMapPin aria-hidden className="h-[0.8em] w-[0.8em] shrink-0" />
-              Rodez
-            </span>
           </h1>
           <p className="mt-6 text-lg font-normal text-white">
             Conseil, Formation, Coaching, Conférence, Recrutement, Évaluation, Orientation
