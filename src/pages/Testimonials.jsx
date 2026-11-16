@@ -1,6 +1,5 @@
 import { useSeo } from '@/lib/useSeo';
 import { PAGE_SEO } from '@/config/seo';
-import { PageHero } from '@/components/sections/PageHero';
 import { Highlight } from '@/components/ui/Highlight';
 import { Section, SectionHeading } from '@/components/ui/Section';
 import { TestimonialGrid } from '@/components/sections/TestimonialGrid';
@@ -28,18 +27,10 @@ export default function Testimonials() {
 
   return (
     <>
-      <PageHero
-        eyebrow="Témoignages"
-        title={
-          <>
-            Ils m’ont fait <span className="text-brand-600">confiance</span>
-          </>
-        }
-        description="La meilleure preuve de la valeur d’un accompagnement, ce sont les personnes qui l’ont vécu. Voici quelques-uns de leurs retours."
-      />
+      <h1 className="sr-only">Témoignages</h1>
 
       {/* Résultats */}
-      <Section id="resultats" className="bg-sand-100" spacing="lg">
+      <Section id="resultats" className="pt-24 sm:pt-32" spacing="lg">
         <SectionHeading
           eyebrow="Quelques résultats"
           title={
@@ -64,7 +55,17 @@ export default function Testimonials() {
         </div>
       </Section>
 
-      <Section id="avis" spacing="lg">
+      <Section id="avis" className="border-t border-ink-100" spacing="lg">
+        <SectionHeading
+          eyebrow="Témoignages"
+          title={
+            <>
+              Ils m’ont fait <Highlight>confiance</Highlight>
+            </>
+          }
+          description="La meilleure preuve de la valeur d’un accompagnement, ce sont les personnes qui l’ont vécu. Voici quelques-uns de leurs retours."
+          className="mb-12"
+        />
         <TestimonialGrid />
       </Section>
 
