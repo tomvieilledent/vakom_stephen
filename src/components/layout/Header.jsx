@@ -83,12 +83,12 @@ export function Header() {
 
         <button
           type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-xl text-ink-900 ring-1 ring-inset ring-ink-200 lg:hidden"
+          className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-ink-900 text-white shadow-soft lg:hidden"
           aria-label={open ? 'Fermer le menu' : 'Ouvrir le menu'}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
         >
-          {open ? <IconClose /> : <IconMenu />}
+          {open ? <IconClose className="h-7 w-7" /> : <IconMenu className="h-7 w-7" />}
         </button>
       </div>
 
