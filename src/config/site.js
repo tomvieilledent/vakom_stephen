@@ -20,7 +20,7 @@ export const SITE = {
     location: 'Rodez (Aveyron) · interventions partout en France',
   },
   contact: {
-    email: 'contact@stephen-consultant.fr',
+    email: 'skeller@vakom.fr',
     phone: '+33 7 87 12 90 54',
     phoneHref: 'tel:+33787129054',
     linkedin: 'https://www.linkedin.com/in/stephen-keller-56aa90158/',

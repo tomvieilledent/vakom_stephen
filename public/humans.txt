@@ -1,7 +1,7 @@
 /* CONSULTANT */
 Nom : Stephen
 Rôle : Consultant en performance humaine — réseau Vakom
-Contact : contact [at] stephen-consultant.fr
+Contact : skeller [at] vakom.fr
 Lieu : France
 
 /* SITE */
