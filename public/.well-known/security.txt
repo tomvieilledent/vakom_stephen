@@ -1,4 +1,4 @@
 Contact: mailto:skeller@vakom.fr
 Expires: 2027-07-30T00:00:00.000Z
 Preferred-Languages: fr
-Canonical: https://stephen-consultant.fr/.well-known/security.txt
+Canonical: https://vakom-rodez.fr/.well-known/security.txt

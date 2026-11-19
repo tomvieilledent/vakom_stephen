@@ -34,7 +34,7 @@ export const SITE = {
     publicationDirector: 'Stephen',
     updatedAt: '30 juillet 2026',
   },
-  url: 'https://stephen-consultant.fr',
+  url: 'https://vakom-rodez.fr',
 };
 
 export const NAV_LINKS = [

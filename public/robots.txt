@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://stephen-consultant.fr/sitemap.xml
+Sitemap: https://vakom-rodez.fr/sitemap.xml

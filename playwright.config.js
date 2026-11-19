@@ -11,8 +11,7 @@ export default defineConfig({
   retries: process.env.CI ? 1 : 0,
   reporter: process.env.CI ? 'github' : 'list',
   use: {
-    // Le build est servi sous /vakom_stephen/ (GitHub Pages project page).
-    baseURL: 'http://localhost:4173/vakom_stephen/',
+    baseURL: 'http://localhost:4173/',
     trace: 'on-first-retry',
   },
   webServer: {
